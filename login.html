@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accès protégé — Théo DURAND</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+    .login-wrap { text-align:center; width:100%; max-width:420px; padding:2rem; }
+    .lock-icon { font-size:3rem; margin-bottom:1rem; }
+    .login-wrap h1 { font-size:1.8rem; margin-bottom:.5rem; }
+    .login-wrap p { color:var(--text2); font-size:.9rem; margin-bottom:2rem; }
+    .pw-field-wrap { position:relative; margin-bottom:1rem; }
+    .pw-field-wrap input {
+      width:100%; background:var(--bg3); border:1px solid var(--border2);
+      color:var(--text); padding:.8rem 3rem .8rem 1rem;
+      border-radius:8px; font-size:1rem; font-family:var(--font);
+      outline:none; transition:border-color .2s;
+    }
+    .pw-field-wrap input:focus { border-color:var(--accent); }
+    .pw-toggle {
+      position:absolute; right:.75rem; top:50%; transform:translateY(-50%);
+      background:none; border:none; color:var(--text3); cursor:pointer;
+      font-size:1rem;
+    }
+    .login-btn {
+      width:100%; background:var(--accent); color:white;
+      border:none; padding:.85rem; border-radius:8px;
+      font-size:1rem; font-weight:600; cursor:pointer; transition:background .2s;
+    }
+    .login-btn:hover { background:var(--accent3); }
+    .error-msg { color:#f87171; font-size:.85rem; margin-top:.75rem; display:none; }
+    .error-msg.show { display:block; }
+    .back-link { display:block; margin-top:1.5rem; color:var(--text3); font-size:.85rem; text-decoration:none; }
+    .back-link:hover { color:var(--accent2); }
+  </style>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="lock-icon">🔒</div>
+  <h1>Accès protégé</h1>
+  <p>Cette section du portfolio est réservée.<br>Veuillez saisir le mot de passe pour continuer.</p>
+  <div class="pw-field-wrap">
+    <input type="password" id="pw" placeholder="Mot de passe..." autocomplete="off">
+    <button class="pw-toggle" onclick="toggleVis()" title="Afficher/masquer">👁</button>
+  </div>
+  <button class="login-btn" onclick="doLogin()">Accéder →</button>
+  <div class="error-msg" id="err">✕ Mot de passe incorrect. Veuillez réessayer.</div>
+  <a class="back-link" href="index.html">← Retour à l'accueil</a>
+</div>
+
+<script>
+function hashStr(s){let h=0;for(let i=0;i<s.length;i++){h=(Math.imul(31,h)+s.charCodeAt(i))|0;}return h.toString(16);}
+const PW_HASH = hashStr('Portfolio2026hPr0tte@u');
+const params = new URLSearchParams(location.search);
+const next = params.get('next') || 'index.html';
+
+function doLogin(){
+  const val = document.getElementById('pw').value;
+  if(hashStr(val) === PW_HASH){
+    sessionStorage.setItem('portfolio_access','1');
+    location.href = next;
+  } else {
+    document.getElementById('err').classList.add('show');
+    document.getElementById('pw').value='';
+    document.getElementById('pw').focus();
+  }
+}
+function toggleVis(){
+  const inp = document.getElementById('pw');
+  inp.type = inp.type==='password'?'text':'password';
+}
+document.getElementById('pw').addEventListener('keydown',e=>{ if(e.key==='Enter') doLogin(); });
+
+// Auto-redirect if already logged
+if(sessionStorage.getItem('portfolio_access')==='1') location.href = next;
+</script>
+</body>
+</html>
