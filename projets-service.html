@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mettre à disposition un service — Théo DURAND</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.realisation{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:2rem;transition:border-color .2s}
+.realisation:hover{border-color:var(--border2)}
+.real-header{padding:1.5rem 1.75rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.real-context{font-family:var(--font);font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;display:flex;align-items:center;gap:.75rem}
+.ctx-tag{background:var(--tag);color:var(--tag-text);padding:.15rem .5rem;border-radius:3px;font-size:.68rem}
+.real-header h3{font-size:1.1rem;font-weight:700;color:var(--text)}
+.real-body{padding:1.25rem 1.75rem}
+.real-body ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.real-body ul li{display:flex;gap:.75rem;align-items:flex-start;font-size:.9rem;color:var(--text2);line-height:1.5}
+.real-body ul li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:.05rem}
+.real-comps{padding:1rem 1.75rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:.4rem}
+.comp-tag{font-size:.7rem;font-family:var(--font);padding:.2rem .6rem;border-radius:4px;background:var(--tag);color:var(--tag-text)}
+.section-divider{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem}
+.section-divider h2{font-size:1rem;font-weight:700;color:var(--text2);white-space:nowrap;font-family:var(--font);text-transform:uppercase;letter-spacing:.08em}
+.section-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+</style>
+
+</head>
+<body>
+<script src="js/nav.js"></script>
+<main>
+<section style="padding-top:7rem">
+<div class="section-inner">
+<div class="section-tag">⚙️ Compétence</div>
+<h1 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;margin-bottom:.75rem">Mettre à disposition un service informatique</h1>
+<p style="color:var(--text2);max-width:700px;font-size:.95rem;margin-bottom:3rem">Réaliser les tests d'intégration et d'acceptation d'un service · Déployer un service · Accompagner les utilisateurs dans la prise en main</p>
+<div class="section-divider"><h2>En formation</h2></div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">Formation</span><span>10/25 au 06/26</span></div>
+<h3>Virtualisation (Proxmox + Hyper-V)</h3>
+</div></div>
+<div class="real-body"><ul><li>Mise à disposition de VMs pour héberger les serveurs de l'infrastructure TechnoShop</li><li>Configuration des ressources virtuelles et des réseaux pour les VMs de production</li><li>Tests de fonctionnement et validation avant mise en service</li></ul></div>
+<div class="real-comps"><span class="comp-tag">Proxmox VE 8</span><span class="comp-tag">Hyper-V</span><span class="comp-tag">Déploiement VMs</span></div>
+</div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">Formation</span><span>01/25 au 11/25</span></div>
+<h3>Configuration d'un serveur Windows — Mise en service AD DS et partages</h3>
+</div></div>
+<div class="real-body"><ul><li>Mise en service complète du contrôleur de domaine Windows Server 2022 : domaine technoshop.lan</li><li>Déploiement des partages réseau pour les services Commercial, Technique, Administration et Commun</li><li>Tests de jonction de poste client Windows 11 et validation des GPO (lecteurs réseau, restrictions USB)</li><li>Mise en service de la sauvegarde automatique quotidienne</li></ul></div>
+<div class="real-comps"><span class="comp-tag">Windows Server 2022</span><span class="comp-tag">AD DS</span><span class="comp-tag">Partages SMB</span><span class="comp-tag">GPO</span><span class="comp-tag">Tests</span></div>
+</div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">Formation</span><span>02/25 au 06/26</span></div>
+<h3>Déploiement GLPI 11 sur Debian 13</h3>
+</div></div>
+<div class="real-body"><ul><li>Installation et configuration de la pile LAMP : Apache2, PHP 8.4 (PHP-FPM), MariaDB</li><li>Déploiement de GLPI 11 et configuration du VirtualHost Apache avec PHP-FPM</li><li>Mise en service du système de tickets pour remplacer les e-mails d'assistance</li><li>Installation et configuration de l'agent GLPI sur le serveur Debian pour l'inventaire automatique</li><li>Rédaction de procédures / documentation technique</li><li>Tests de fonctionnement : création de tickets, inventaire, connexion des agents</li></ul></div>
+<div class="real-comps"><span class="comp-tag">GLPI 11</span><span class="comp-tag">Debian 13</span><span class="comp-tag">Apache2</span><span class="comp-tag">PHP-FPM</span><span class="comp-tag">MariaDB</span><span class="comp-tag">Agent GLPI</span></div>
+</div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">Formation</span><span>02/25 au 06/26</span></div>
+<h3>Rédaction de procédures / documentation technique</h3>
+</div></div>
+<div class="real-body"><ul><li>Rédaction de la documentation d'installation et de configuration des deux situations E6</li><li>Réalisation de tests d'intégration documentés pour valider le bon fonctionnement des services déployés</li></ul></div>
+<div class="real-comps"><span class="comp-tag">Documentation</span><span class="comp-tag">Tests</span><span class="comp-tag">Procédures</span></div>
+</div>
+<div class="section-divider"><h2>Première année en entreprise — TechnoShop</h2></div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">TechnoShop · 1ère année</span><span>11/23 au 01/24</span></div>
+<h3>Installation et configuration de postes de travail</h3>
+</div></div>
+<div class="real-body"><ul><li>Déploiement de Windows 11 via ISO sur les postes utilisateurs</li><li>Installation des logiciels métier et configuration des profils utilisateurs</li><li>Intégration des postes au domaine Active Directory de TechnoShop</li></ul></div>
+<div class="real-comps"><span class="comp-tag">Windows 11</span><span class="comp-tag">Déploiement postes</span><span class="comp-tag">Active Directory</span></div>
+</div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">TechnoShop · 1ère année</span><span>12/23 au 01/24</span></div>
+<h3>Configuration de l'infrastructure réseau de la PME</h3>
+</div></div>
+<div class="real-body"><ul><li>Câblage structuré et configuration d'un switch administrable (VLAN 10/20)</li><li>Mise en place du Wi-Fi professionnel avec point d'accès, SSID et sécurité WPA2</li><li>Documentation du plan d'adressage réseau</li></ul></div>
+<div class="real-comps"><span class="comp-tag">VLANs</span><span class="comp-tag">Wi-Fi</span><span class="comp-tag">Switch</span><span class="comp-tag">Infrastructure réseau</span></div>
+</div>
+<div class="section-divider"><h2>Deuxième année en entreprise — TechnoShop</h2></div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">TechnoShop · 2ème année</span><span>10/24 au 12/24</span></div>
+<h3>Déploiement et migration de postes Windows 11</h3>
+</div></div>
+<div class="real-body"><ul><li>Migration des postes de Windows 10 vers Windows 11 : vérification de la compatibilité matérielle</li><li>Accompagnement des utilisateurs lors de la prise en main de Windows 11</li><li>Jonction des postes migrés au domaine technoshop.lan</li></ul></div>
+<div class="real-comps"><span class="comp-tag">Windows 11</span><span class="comp-tag">Migration</span><span class="comp-tag">Accompagnement utilisateurs</span></div>
+</div>
+<div class="realisation reveal">
+<div class="real-header"><div class="real-header-left">
+<div class="real-context"><span class="ctx-tag">TechnoShop · 2ème année</span><span>12/24 au 02/25</span></div>
+<h3>Remplacement et maintenance préventive du matériel</h3>
+</div></div>
+<div class="real-body"><ul><li>Mise en place de RAM sur des postes pour améliorer les performances</li><li>Nettoyage et vérification physique des postes (dépoussiérage, vérification connectiques)</li><li>Mise à jour du firmware des équipements réseau</li></ul></div>
+<div class="real-comps"><span class="comp-tag">Maintenance matérielle</span><span class="comp-tag">RAM</span><span class="comp-tag">Firmware</span><span class="comp-tag">Maintenance préventive</span></div>
+</div>
+
+</div>
+</section>
+</main>
+<footer>© 2025 <span>Théo DURAND</span> · BTS SIO SISR</footer>
+<script>document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('visible')},{threshold:.1}).observe(el);});});</script>
+</body></html>
