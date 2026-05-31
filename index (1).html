@@ -334,7 +334,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
   padding:2.5rem;margin-bottom:2rem;
   display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;
 }
-.glpi-left{}
+
 .glpi-logo{
   font-family:'Syne',sans-serif;font-weight:800;font-size:3rem;
   letter-spacing:-0.05em;color:#FF4D1C;margin-bottom:0.5rem;
@@ -1237,37 +1237,37 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r01" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Virtualisation – Proxmox et Hyper-V</h2>
-    <p class="page-subtitle">Mise en place d'un environnement de virtualisation pour héberger plusieurs serveurs et postes de travail virtuels, en utilisant Proxmox VE et Hyper-V.</p>
+    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Mise en place d'un environnement de virtualisation sur les serveurs de la salle TP pour héberger l'ensemble des VMs utilisées dans les situations professionnelles E6.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <span class="block-label fi">Contexte</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>Déployer et configurer Proxmox VE sur un serveur physique dédié.</li><li>Créer et administrer des machines virtuelles (VMs) pour les différents services.</li><li>Mettre en place Hyper-V sur Windows Server et créer des VMs Windows.</li><li>Assurer la continuité de service grâce aux snapshots et à la gestion des ressources.</li>
+      <li>Dans le cadre de la formation BTS SIO SISR au CFA CCI de Saumur, nous devions mettre en place un environnement virtualisé pour héberger nos serveurs de TP.</li><li>L'objectif était de maîtriser les deux hyperviseurs principaux du marché : Proxmox VE (type 1, open source) et Hyper-V (Microsoft).</li><li>Ces VMs ont ensuite servi de support aux situations professionnelles E6 (Windows Server 2022, Debian 12, poste client Windows 11).</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
-      
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">1. Installation de Proxmox VE</div>
-        <div class="card-desc">J'ai téléchargé l'ISO de Proxmox VE et l'ai installé sur le serveur physique. Après l'installation, j'ai accédé à l'interface web (port 8006) pour configurer le réseau, les stockages (LVM et ZFS) et créer les premiers réseaux virtuels (vmbr0 pour le bridge principal).</div>
+        <div class="card-desc">En formation, j'ai installé Proxmox VE depuis l'ISO sur un serveur physique de la salle TP. J'ai configuré l'interface web (port 8006), paramétré le réseau, les stockages (LVM) et créé les réseaux virtuels (vmbr0). Proxmox a ensuite hébergé toutes les VMs des situations E6.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">2. Création des machines virtuelles</div>
-        <div class="card-desc">J'ai créé plusieurs VMs sous Proxmox : un serveur Debian 12 pour GLPI, un Windows Server 2022 pour l'AD et le serveur de fichiers, et un poste client Windows 11 pour les tests. Pour chaque VM, j'ai défini les ressources adaptées (vCPU, RAM, disque) en fonction des besoins du service hébergé.</div>
+        <div class="card-desc">J'ai créé les VMs nécessaires aux TP : Windows Server 2022 (AD DS, serveur de fichiers, GPO — Situation 1 E6), Debian 12 (GLPI — Situation 2 E6), et un poste client Windows 11 pour les tests. Chaque VM a été configurée avec les ressources adaptées (vCPU, RAM, disque).</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">3. Configuration de Hyper-V</div>
-        <div class="card-desc">Sur le Windows Server 2022, j'ai activé le rôle Hyper-V via le Gestionnaire de serveur. J'ai créé un commutateur virtuel externe pour permettre la communication avec le réseau physique, puis déployé une VM de test pour valider le fonctionnement de l'hyperviseur Microsoft.</div>
+        <div class="card-desc">En cours de formation, j'ai activé le rôle Hyper-V sur Windows Server 2022 via le Gestionnaire de serveur. J'ai créé un commutateur virtuel externe pour la communication réseau et déployé des VMs Windows pour valider le fonctionnement de l'hyperviseur Microsoft.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">4. Gestion des snapshots et sauvegarde</div>
-        <div class="card-desc">J'ai mis en place des snapshots réguliers sur Proxmox avant chaque manipulation importante, permettant un retour arrière rapide en cas d'erreur. Cette pratique m'a été très utile lors des phases de configuration des serveurs.</div>
+        <div class="card-title">4. Gestion des snapshots</div>
+        <div class="card-desc">J'ai pris des snapshots réguliers sur Proxmox avant chaque manipulation importante des serveurs, ce qui m'a permis de revenir à un état stable en cas d'erreur lors des configurations (AD, GPO, GLPI). Une bonne pratique acquise en formation et directement appliquée chez Scalesi.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      La mise en place de l'environnement de virtualisation avec Proxmox et Hyper-V m'a permis de disposer d'une infrastructure complète et flexible pour l'ensemble des situations professionnelles. J'ai acquis une bonne maîtrise des hyperviseurs et de la gestion des ressources virtuelles, compétences essentielles dans le métier d'administrateur systèmes et réseaux.
+      Cette réalisation en formation m'a permis de maîtriser les deux hyperviseurs majeurs du marché. La pratique intensive de Proxmox au CFA m'a directement servi chez Scalesi où j'ai retrouvé cet outil chez plusieurs clients. La gestion des ressources virtuelles est aujourd'hui un réflexe dans mon travail quotidien d'administrateur systèmes.
     </div>
   </div>
   <div class="page-footer">
@@ -1294,37 +1294,37 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r02" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Configuration d'un serveur Windows – AD DS, DNS, DHCP, WSUS, DFS, Hyper-V</h2>
-    <p class="page-subtitle">TechnoShop, client de Scalesi, ne disposait d'aucune infrastructure centralisée. Il m'a été confié la mise en place d'un serveur Windows Server 2022 hébergeant l'ensemble des rôles nécessaires à la gestion du parc.</p>
+    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Déploiement complet d'un Windows Server 2022 avec les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V dans le cadre du contexte pédagogique TechnoShop.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <span class="block-label fi">Contexte</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>Promouvoir le serveur en contrôleur de domaine Active Directory (domaine technoshop.lan).</li><li>Configurer les rôles DNS et DHCP pour la gestion automatique du réseau.</li><li>Mettre en place WSUS pour centraliser les mises à jour Windows.</li><li>Configurer DFS pour la gestion des partages de fichiers.</li><li>Activer Hyper-V pour héberger des machines virtuelles.</li>
+      <li>En formation BTS SIO SISR au CFA, nous avons travaillé sur le contexte pédagogique TechnoShop nécessitant une infrastructure Windows Server complète.</li><li>L'objectif était de maîtriser l'installation et la configuration des rôles serveurs principaux : AD DS, DNS, DHCP, WSUS, DFS et Hyper-V.</li><li>Cette réalisation est directement liée à la Situation 1 de l'épreuve E6 (AD DS, serveur de fichiers, GPO).</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
-      
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">1. Installation des rôles</div>
-        <div class="card-desc">Via le Gestionnaire de serveur, j'ai installé les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V. Après l'installation, j'ai promu le serveur en contrôleur de domaine pour le domaine technoshop.lan, ce qui a automatiquement configuré le service DNS intégré à AD.</div>
+        <div class="card-desc">Via le Gestionnaire de serveur, j'ai installé les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V sur la VM Windows Server 2022 hébergée sous Proxmox. J'ai promu le serveur en contrôleur de domaine pour le domaine technoshop.lan, configurant automatiquement le DNS intégré à AD.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">2. Configuration Active Directory et DNS</div>
-        <div class="card-desc">J'ai créé l'arborescence des Unités d'Organisation (OU) : Direction, Commercial, Technique, Administration. J'ai ensuite créé les comptes utilisateurs et les groupes de sécurité dans les OU correspondantes. Le DNS a été configuré avec les zones de recherche directe et inverse.</div>
+        <div class="card-desc">J'ai créé l'arborescence des Unités d'Organisation (OU) : Commercial, Technique, Administration, Informatique. J'ai créé les comptes utilisateurs, les groupes de sécurité et configuré les zones DNS de recherche directe et inverse pour le domaine technoshop.lan.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">3. Configuration DHCP</div>
-        <div class="card-desc">J'ai créé une étendue DHCP couvrant la plage 192.168.1.50 à 192.168.1.200, avec une passerelle à 192.168.1.1 et les serveurs DNS pointant vers le contrôleur de domaine. Des réservations ont été créées pour les équipements fixes.</div>
+        <div class="card-title">3. Configuration DHCP, WSUS et DFS</div>
+        <div class="card-desc">J'ai configuré le DHCP (plage 192.168.1.50-200), mis en place WSUS pour centraliser les mises à jour Windows via GPO, et créé un espace de noms DFS pointant vers les partages du serveur de fichiers pour simplifier l'accès des utilisateurs.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">4. Mise en place WSUS et DFS</div>
-        <div class="card-desc">WSUS a été configuré pour récupérer les mises à jour Microsoft et les distribuer aux postes du domaine via une GPO. Pour DFS, j'ai créé un espace de noms et des dossiers cibles pointant vers les partages du serveur de fichiers.</div>
+        <div class="card-title">4. GPO et partages NTFS</div>
+        <div class="card-desc">J'ai configuré les GPO (lecteurs réseau, blocage clé USB, politique de mot de passe) et sécurisé les partages NTFS par service avec des groupes RW et RO. Cette partie constitue le cœur de la Situation 1 de l'épreuve E6.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      Le déploiement de ce serveur Windows Server 2022 multi-rôles a permis à TechnoShop de disposer d'une infrastructure centralisée et sécurisée. Les utilisateurs sont désormais dans un domaine Active Directory, les mises à jour sont gérées automatiquement via WSUS et les fichiers sont accessibles de manière unifiée via DFS.
+      Cette réalisation en formation m'a permis de maîtriser l'ensemble des rôles Windows Server dans un environnement réaliste. Les compétences acquises ont été directement réutilisées chez Scalesi lors d'interventions sur les infrastructures clients, notamment pour la gestion des AD et des GPO.
     </div>
   </div>
   <div class="page-footer">
@@ -1351,33 +1351,33 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r03" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Rédaction de procédures et documentation technique</h2>
-    <p class="page-subtitle">Dans le cadre de mes activités chez Scalesi et en formation, j'ai régulièrement rédigé des procédures et documentations techniques pour formaliser les configurations et faciliter la prise en main par d'autres techniciens.</p>
+    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Rédaction des documentations techniques des situations E6 (Windows Server 2022, GLPI Inventory) et des procédures réalisées en TP, avec mise en ligne sur le portfolio.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <span class="block-label fi">Contexte</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>Formaliser les étapes des configurations réalisées pour les clients de Scalesi.</li><li>Produire des documents réutilisables et compréhensibles par toute l'équipe.</li><li>Constituer une base de connaissances pour les interventions futures.</li>
+      <li>En formation BTS SIO SISR, chaque réalisation technique doit être accompagnée d'une documentation claire et structurée.</li><li>J'ai rédigé les documentations techniques des situations E6 (47 pages pour la Situation 1, documentation GLPI Inventory pour la Situation 2) ainsi que les analyses de besoin associées.</li><li>Cette compétence est également utilisée chez Scalesi pour documenter les interventions chez les clients.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
-      
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">1. Identification des procédures à rédiger</div>
-        <div class="card-desc">J'ai recensé les interventions récurrentes nécessitant une documentation : installation de postes, configuration de l'AD, déploiement de logiciels, etc. Cette liste a été validée avec le responsable technique de Scalesi.</div>
+        <div class="card-title">1. Documentation des situations E6</div>
+        <div class="card-desc">J'ai rédigé la documentation technique intégrale de la Situation 1 (Windows Server 2022 : AD DS, serveur de fichiers, GPO, sauvegarde) en 47 pages avec captures d'écran annotées, étapes numérotées et encadrés d'avertissement. Idem pour la Situation 2 (GLPI Inventory, GPO de déploiement).</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">2. Rédaction des procédures</div>
-        <div class="card-desc">Pour chaque procédure, j'ai suivi une structure claire : contexte, prérequis, étapes numérotées avec captures d'écran, et résultat attendu. Les documents ont été rédigés sur Word et intégrés au portfolio en ligne.</div>
+        <div class="card-title">2. Rédaction des analyses de besoin</div>
+        <div class="card-desc">Pour chaque situation, j'ai rédigé un document d'analyse du besoin (contexte, choix technique avec tableau comparatif, impact, maquette fonctionnelle, tests d'acceptation) servant de support à la présentation au jury E6.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">3. Relecture et validation</div>
-        <div class="card-desc">Chaque document a été relu par un technicien senior de Scalesi pour vérifier l'exactitude des informations et la clarté des explications avant d'être diffusé en interne.</div>
+        <div class="card-title">3. Structure et mise en forme</div>
+        <div class="card-desc">Chaque document suit une structure professionnelle : en-tête avec référence BTS SIO, pagination, titres hiérarchisés, encadrés ⚠ pour les avertissements, 💡 pour les astuces et ✅ pour les validations. Mis en ligne sur le portfolio GitHub Pages.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      La rédaction de procédures m'a permis de développer une rigueur dans la formalisation des actions techniques. Ces documents constituent aujourd'hui une base de connaissances utile pour l'équipe et témoignent de ma capacité à communiquer efficacement sur des sujets techniques.
+      La rédaction de documentations techniques en formation m'a appris à structurer et formaliser des procédures complexes de manière claire et reproductible. Cette compétence est directement transférable chez Scalesi où je documente les interventions chez les clients.
     </div>
   </div>
   <div class="page-footer">
@@ -1404,37 +1404,37 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r04" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span> <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Configuration réseau – Switch Cisco, Routeur Cisco, Pare-feu pfSense</h2>
-    <p class="page-subtitle">Scalesi intervient régulièrement chez ses clients pour la mise en place ou la refonte de leur infrastructure réseau. J'ai configuré des équipements Cisco et des pare-feu pfSense pour segmenter et sécuriser les réseaux.</p>
+    <p class="page-subtitle">Réalisation menée à la fois en formation au CFA (travaux pratiques sur équipements Cisco réels) et en alternance chez Scalesi (interventions chez des clients pour la mise en place ou la refonte de leur infrastructure réseau).</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <span class="block-label fi">Contexte</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>Configurer des VLANs sur des switches Cisco pour segmenter le réseau.</li><li>Mettre en place le routage inter-VLAN sur un routeur Cisco.</li><li>Installer et configurer pfSense comme pare-feu et routeur.</li><li>Définir des règles de filtrage pour sécuriser les flux réseau.</li>
+      <li>En formation au CFA, j'ai pratiqué la configuration d'équipements Cisco (switches, routeurs) sur du matériel réel en salle de TP réseau.</li><li>En alternance chez Scalesi, j'ai appliqué ces compétences lors d'interventions chez des clients : configuration de VLANs, routage inter-VLAN et déploiement de pare-feu pfSense.</li><li>Les deux contextes sont complémentaires : la théorie et les bases en formation, la pratique en conditions réelles chez Scalesi.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
-      
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">1. Configuration des switches Cisco</div>
-        <div class="card-desc">En mode CLI, j'ai créé les VLANs nécessaires (VLAN 10 Serveurs, VLAN 20 Postes, VLAN 30 Invités), configuré les ports en mode access ou trunk selon leur usage, et activé le Spanning Tree Protocol pour éviter les boucles réseau.</div>
+        <div class="card-title">1. Configuration des switches Cisco (formation + Scalesi)</div>
+        <div class="card-desc">En TP au CFA puis chez les clients Scalesi, j'ai configuré en CLI Cisco : création des VLANs (VLAN 10 Serveurs, VLAN 20 Postes, VLAN 30 Invités), configuration des ports en mode access ou trunk, activation du Spanning Tree Protocol pour éviter les boucles réseau.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">2. Configuration du routeur Cisco</div>
-        <div class="card-desc">J'ai configuré les sous-interfaces du routeur pour assurer le routage inter-VLAN (router-on-a-stick), en définissant une adresse IP de passerelle pour chaque VLAN. Le NAT a également été configuré pour permettre l'accès Internet aux postes clients.</div>
+        <div class="card-title">2. Configuration du routeur Cisco (formation + Scalesi)</div>
+        <div class="card-desc">J'ai configuré le routage inter-VLAN (router-on-a-stick) en définissant des sous-interfaces avec une adresse IP de passerelle pour chaque VLAN. Le NAT a été configuré pour permettre l'accès Internet aux postes clients, d'abord en TP puis chez les clients Scalesi.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">3. Mise en place de pfSense</div>
-        <div class="card-desc">J'ai installé pfSense sur une VM Proxmox dédiée, configuré les interfaces WAN et LAN, puis défini les règles de filtrage : blocage des flux non autorisés, autorisation des services nécessaires (HTTP, HTTPS, DNS).</div>
+        <div class="card-title">3. Mise en place de pfSense (formation)</div>
+        <div class="card-desc">En formation, j'ai installé pfSense sur une VM Proxmox, configuré les interfaces WAN et LAN, puis défini les règles de filtrage : blocage des flux non autorisés, autorisation des services nécessaires (HTTP, HTTPS, DNS). Ces bases ont ensuite été utilisées chez Scalesi.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">4. Tests et validation</div>
-        <div class="card-desc">J'ai vérifié la connectivité entre les VLANs selon les règles définies, testé l'accès Internet depuis les postes clients et validé le blocage des flux non autorisés via pfSense.</div>
+        <div class="card-title">4. Tests et validation (Scalesi)</div>
+        <div class="card-desc">Chez Scalesi, après chaque configuration réseau, j'ai vérifié la connectivité entre les VLANs, testé l'accès Internet depuis les postes clients et validé le blocage des flux non autorisés via pfSense avant de remettre l'infrastructure au client.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      Cette réalisation m'a permis d'acquérir une expérience concrète en configuration d'équipements réseau professionnels. La maîtrise de Cisco IOS et de pfSense sont des compétences très recherchées dans le domaine des réseaux.
+      La complémentarité entre les TP réseau au CFA et les interventions réelles chez Scalesi m'a permis de maîtriser rapidement la configuration d'équipements professionnels. Aujourd'hui, la configuration de VLANs Cisco et de pfSense fait partie de mon quotidien chez Scalesi.
     </div>
   </div>
   <div class="page-footer">
@@ -1461,37 +1461,37 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r05" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Supervision du réseau et des serveurs</h2>
-    <p class="page-subtitle">Pour assurer la disponibilité des services hébergés chez les clients de Scalesi, j'ai mis en place un système de supervision permettant de surveiller en temps réel l'état des équipements réseau et des serveurs.</p>
+    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Mise en place d'un outil de supervision (Zabbix / PRTG) pour surveiller en temps réel l'état des serveurs et équipements réseau de l'infrastructure de TP.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <span class="block-label fi">Contexte</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>Mettre en place un outil de supervision pour surveiller les équipements réseau et serveurs.</li><li>Configurer des alertes en cas de panne ou de dépassement de seuils.</li><li>Produire des tableaux de bord pour visualiser l'état de l'infrastructure.</li>
+      <li>En formation BTS SIO SISR, nous avons mis en place un système de supervision pour surveiller l'infrastructure montée en TP (serveurs Windows, Debian, switches).</li><li>L'objectif était de maîtriser les outils de monitoring utilisés en production et d'apprendre à configurer des alertes automatiques.</li><li>Cette compétence est directement utilisée chez Scalesi pour surveiller les infrastructures des clients.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
-      
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">1. Installation de l'outil de supervision</div>
-        <div class="card-desc">J'ai installé un outil de supervision (Zabbix / PRTG) sur un serveur dédié. L'outil a été configuré pour découvrir automatiquement les équipements du réseau via SNMP et ICMP.</div>
+        <div class="card-desc">En formation, j'ai installé un outil de supervision (Zabbix / PRTG) sur une VM dédiée sous Proxmox. L'outil a été configuré pour découvrir automatiquement les équipements du réseau de TP via SNMP et ICMP.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">2. Ajout des équipements à superviser</div>
-        <div class="card-desc">J'ai ajouté les serveurs Windows et Linux, les switches Cisco et le pare-feu pfSense dans la liste des équipements supervisés. Pour chaque équipement, j'ai défini les métriques à surveiller : CPU, RAM, espace disque, disponibilité des services.</div>
+        <div class="card-desc">J'ai ajouté les serveurs Windows Server 2022, Debian 12 (GLPI) et les équipements réseau dans la liste des équipements supervisés. Pour chaque équipement, j'ai défini les métriques : CPU, RAM, espace disque, disponibilité des services.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">3. Configuration des alertes</div>
-        <div class="card-desc">Des seuils d'alerte ont été définis pour chaque métrique. En cas de dépassement, une notification par e-mail est envoyée automatiquement à l'équipe technique avec le détail de l'anomalie détectée.</div>
+        <div class="card-desc">Des seuils d'alerte ont été définis pour chaque métrique. En cas de dépassement, une notification est envoyée automatiquement avec le détail de l'anomalie. J'ai testé le déclenchement des alertes en simulant des pannes sur les VMs de TP.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">4. Création des tableaux de bord</div>
-        <div class="card-desc">J'ai créé des tableaux de bord synthétiques permettant de visualiser en un coup d'œil l'état global de l'infrastructure, avec des indicateurs colorés (vert/orange/rouge) selon la criticité.</div>
+        <div class="card-desc">J'ai créé des tableaux de bord synthétiques permettant de visualiser en un coup d'œil l'état global de l'infrastructure, avec des indicateurs colorés (vert/orange/rouge). Cette vue d'ensemble est essentielle pour détecter rapidement une anomalie.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      La mise en place de la supervision a permis à Scalesi d'anticiper les pannes et de réduire le temps de réaction en cas d'incident. Cette réalisation m'a sensibilisé à l'importance de la surveillance proactive dans la gestion d'une infrastructure informatique.
+      Cette réalisation en formation m'a permis de maîtriser les outils de supervision professionnels. Les compétences acquises sont directement réutilisées chez Scalesi où je participe à la surveillance des infrastructures des clients via des outils similaires.
     </div>
   </div>
   <div class="page-footer">
@@ -1518,6 +1518,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r06" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Veille technologique</h2>
     <p class="page-subtitle">Dans le domaine de l'informatique, les technologies évoluent rapidement. Pour rester à jour et anticiper les nouvelles menaces, j'ai mis en place une démarche de veille technologique régulière tout au long de ma formation BTS SIO.</p>
   </div>
@@ -1571,6 +1572,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r07" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Création du portfolio HTML / CSS / JS</h2>
     <p class="page-subtitle">Dans le cadre du BTS SIO, j'ai conçu un portfolio en ligne présentant mes réalisations professionnelles, développé en HTML, CSS et JavaScript avec l'aide d'outils d'intelligence artificielle.</p>
   </div>
@@ -1628,6 +1630,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r08" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Support de poste – Dépannage outils Microsoft Office</h2>
     <p class="page-subtitle">Lors de mon stage de première année chez Scalesi, j'ai assuré le support de premier niveau auprès des utilisateurs concernant des problèmes liés à la suite Microsoft Office.</p>
   </div>
@@ -1681,6 +1684,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r09" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Gestion et inventaire du parc informatique</h2>
     <p class="page-subtitle">Lors de mon stage de première année chez Scalesi, un client ne disposait d'aucun inventaire structuré de son parc informatique. Il m'a été confié de réaliser un inventaire complet du parc.</p>
   </div>
@@ -1734,6 +1738,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r10" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Assistance utilisateurs – Incidents réseau et impression</h2>
     <p class="page-subtitle">Durant mon stage de première année chez Scalesi, j'ai traité de nombreux tickets d'assistance liés à des problèmes de connexion réseau et d'impression, nécessitant un diagnostic méthodique.</p>
   </div>
@@ -1791,6 +1796,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r11" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Gestion des comptes utilisateurs – Active Directory</h2>
     <p class="page-subtitle">Chez Scalesi, la gestion des comptes utilisateurs Active Directory est une tâche quotidienne. J'ai pris en charge la création, modification et suppression de comptes AD pour les clients.</p>
   </div>
@@ -1844,6 +1850,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r12" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Installation et configuration de postes de travail</h2>
     <p class="page-subtitle">Scalesi est régulièrement sollicité par ses clients pour le déploiement de nouveaux postes de travail. Lors de mon stage de première année, j'ai participé à plusieurs déploiements de postes Windows 11.</p>
   </div>
@@ -1897,6 +1904,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r13" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Configuration de l'infrastructure réseau d'une PME</h2>
     <p class="page-subtitle">Lors de mon stage de première année chez Scalesi, j'ai participé à la mise en place de l'infrastructure réseau d'une PME cliente : câblage, VLANs, Wi-Fi professionnel et documentation du plan d'adressage.</p>
   </div>
@@ -1950,6 +1958,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r14" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Support téléphonique et télémaintenance</h2>
     <p class="page-subtitle">Chez Scalesi, une partie du support aux clients se fait à distance. Lors de mon stage de première année, j'ai assuré des sessions d'assistance à distance via TeamViewer, AnyDesk et NinjaRemote.</p>
   </div>
@@ -2003,6 +2012,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r15" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Sécurisation des accès et gestion des habilitations</h2>
     <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, un audit de sécurité préliminaire chez un client a révélé des problèmes d'habilitations. Il m'a été confié de remédier à ces problèmes.</p>
   </div>
@@ -2060,6 +2070,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r16" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Déploiement et migration de postes Windows 11</h2>
     <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, un client utilisait encore des postes sous Windows 10 dont le support allait prendre fin. J'ai participé à la migration complète du parc vers Windows 11.</p>
   </div>
@@ -2113,6 +2124,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r17" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Administration avancée Active Directory et GPO</h2>
     <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, j'ai approfondi mes compétences en administration Active Directory en configurant de nouvelles GPO et en réalisant un audit des comptes AD.</p>
   </div>
@@ -2170,6 +2182,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r18" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Remplacement et maintenance préventive du matériel</h2>
     <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, j'ai réalisé des opérations de maintenance préventive sur le parc informatique d'un client : remplacement de RAM, nettoyage physique et mise à jour du firmware.</p>
   </div>
@@ -2223,6 +2236,7 @@ textarea.form-input{resize:vertical;min-height:80px;}
 <div id="p-r19" class="page">
   <div class="page-intro fi">
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Veille technologique et développement professionnel en entreprise</h2>
     <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, j'ai poursuivi ma démarche de veille technologique et travaillé à mon développement professionnel en mettant à jour mon portfolio et mon CV.</p>
   </div>
@@ -2459,24 +2473,9 @@ textarea.form-input{resize:vertical;min-height:80px;}
     </div>
   </div>
 </div>
-<div id="e5-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;align-items:center;justify-content:center;">
-  <div style="background:white;border-radius:20px;padding:2.5rem;width:380px;max-width:90vw;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
-    <div style="font-size:2rem;margin-bottom:1rem;">🔒</div>
-    <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:0.4rem;color:#1A1A18;">Épreuve E5</div>
-    <div style="font-size:0.82rem;color:#6B6860;margin-bottom:1.5rem;">Cette section est protégée.<br>Veuillez entrer le mot de passe.</div>
-    <input type="password" id="e5-pwd-input" placeholder="Mot de passe..."
-      style="width:100%;padding:0.75rem 1rem;border:1.5px solid #E0DDD6;border-radius:10px;font-size:0.9rem;font-family:'Inter',sans-serif;outline:none;margin-bottom:0.75rem;text-align:center;"
-      onkeydown="if(event.key==='Enter')checkE5Pwd()">
-    <div id="e5-pwd-error" style="display:none;color:#EF4444;font-size:0.78rem;margin-bottom:0.75rem;">Mot de passe incorrect.</div>
-    <div style="display:flex;gap:0.75rem;justify-content:center;">
-      <button onclick="closeE5Modal()" style="padding:0.65rem 1.2rem;border-radius:10px;border:1.5px solid #E0DDD6;background:transparent;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Annuler</button>
-      <button onclick="checkE5Pwd()" style="padding:0.65rem 1.4rem;border-radius:10px;border:none;background:#FF4D1C;color:white;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Accéder →</button>
-    </div>
-  </div>
-</div>
+<!-- E5 accessible sans mot de passe -->
 
 <script>
-const E5_PWD = 'SIOe52026!';
 const E6_PWD = 'SIOe62026!';
 let e6Unlocked = false;
 
@@ -2508,8 +2507,24 @@ function closeE6Modal(){
   document.getElementById('e6-pwd-input').value='';
   document.getElementById('e6-pwd-error').style.display='none';
 }
-let e5Unlocked = false;
+let e5Unlocked = true;
 let pendingE5Page = null;
+
+function toggleE5(){
+  openE5Submenu();
+}
+
+function goE5(page){
+  go('e5-'+page);
+}
+
+function openE5Submenu(){
+  const sub=document.getElementById('e5-submenu');
+  const arrow=document.getElementById('e5-arrow');
+  const isOpen=sub.style.display!=='none';
+  sub.style.display=isOpen?'none':'block';
+  arrow.style.transform=isOpen?'rotate(0deg)':'rotate(90deg)';
+}
 
 const allPages = ['accueil','bts','alt','parc','veille','e5-patrimoine','e5-incidents','e5-presence','e5-projet','e5-service','e5-developpement','e6','r01','r02','r03','r04','r05','r06','r07','r08','r09','r10','r11','r12','r13','r14','r15','r16','r17','r18','r19'];
 const allNavIds = ['accueil','bts','alt','parc','veille','e5','e5-patrimoine','e5-incidents','e5-presence','e5-projet','e5-service','e5-developpement','e6'];
@@ -2529,58 +2544,6 @@ function go(name){
   document.getElementById('main').scrollTo(0,0);
   setTimeout(anim,50);
   if(window.innerWidth<=900) document.getElementById('sidebar').classList.remove('open');
-}
-
-function toggleE5(){
-  if(!e5Unlocked){
-    pendingE5Page = null;
-    document.getElementById('e5-modal').style.display='flex';
-    setTimeout(()=>document.getElementById('e5-pwd-input').focus(),100);
-    return;
-  }
-  openE5Submenu();
-}
-
-function goE5(page){
-  if(!e5Unlocked){
-    pendingE5Page = page;
-    document.getElementById('e5-modal').style.display='flex';
-    setTimeout(()=>document.getElementById('e5-pwd-input').focus(),100);
-    return;
-  }
-  go('e5-'+page);
-}
-
-function openE5Submenu(){
-  const sub=document.getElementById('e5-submenu');
-  const arrow=document.getElementById('e5-arrow');
-  const isOpen=sub.style.display!=='none';
-  sub.style.display=isOpen?'none':'block';
-  arrow.style.transform=isOpen?'rotate(0deg)':'rotate(90deg)';
-}
-
-function checkE5Pwd(){
-  const val=document.getElementById('e5-pwd-input').value;
-  const err=document.getElementById('e5-pwd-error');
-  if(val===E5_PWD){
-    e5Unlocked=true;
-    closeE5Modal();
-    openE5Submenu();
-    if(pendingE5Page){
-      go('e5-'+pendingE5Page);
-      pendingE5Page=null;
-    }
-  } else {
-    err.style.display='block';
-    document.getElementById('e5-pwd-input').value='';
-    document.getElementById('e5-pwd-input').focus();
-  }
-}
-
-function closeE5Modal(){
-  document.getElementById('e5-modal').style.display='none';
-  document.getElementById('e5-pwd-input').value='';
-  document.getElementById('e5-pwd-error').style.display='none';
 }
 
 function anim(){
