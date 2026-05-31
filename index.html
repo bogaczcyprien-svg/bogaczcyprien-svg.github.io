@@ -1239,35 +1239,35 @@ textarea.form-input{resize:vertical;min-height:80px;}
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
     <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Virtualisation – Proxmox et Hyper-V</h2>
-    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Mise en place d'un environnement de virtualisation sur les serveurs de la salle TP pour héberger l'ensemble des VMs utilisées dans les situations professionnelles E6.</p>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons étudié et pratiqué la virtualisation avec deux hyperviseurs majeurs : Proxmox VE et Hyper-V. J'ai installé, configuré et géré des machines virtuelles sur du matériel réel en salle de TP.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Contexte</span>
+    <span class="block-label fi">Ce qu'on a appris</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>Dans le cadre de la formation BTS SIO SISR au CFA CCI de Saumur, nous devions mettre en place un environnement virtualisé pour héberger nos serveurs de TP.</li><li>L'objectif était de maîtriser les deux hyperviseurs principaux du marché : Proxmox VE (type 1, open source) et Hyper-V (Microsoft).</li><li>Ces VMs ont ensuite servi de support aux situations professionnelles E6 (Windows Server 2022, Debian 12, poste client Windows 11).</li>
+      <li>Comprendre le fonctionnement des hyperviseurs de type 1 (bare-metal) et leurs différences avec les solutions Microsoft.</li><li>Installer et configurer Proxmox VE depuis l'ISO, gérer le réseau et le stockage virtualisé.</li><li>Déployer et administrer des VMs sous différents systèmes d'exploitation (Windows Server, Debian, Windows 11).</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">1. Installation de Proxmox VE</div>
-        <div class="card-desc">En formation, j'ai installé Proxmox VE depuis l'ISO sur un serveur physique de la salle TP. J'ai configuré l'interface web (port 8006), paramétré le réseau, les stockages (LVM) et créé les réseaux virtuels (vmbr0). Proxmox a ensuite hébergé toutes les VMs des situations E6.</div>
+        <div class="card-desc">J'ai installé Proxmox VE depuis l'ISO sur un serveur physique de la salle TP. J'ai accédé à l'interface web (port 8006), configuré le réseau, les stockages (LVM) et créé les réseaux virtuels (vmbr0 pour le bridge principal).</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">2. Création des machines virtuelles</div>
-        <div class="card-desc">J'ai créé les VMs nécessaires aux TP : Windows Server 2022 (AD DS, serveur de fichiers, GPO — Situation 1 E6), Debian 12 (GLPI — Situation 2 E6), et un poste client Windows 11 pour les tests. Chaque VM a été configurée avec les ressources adaptées (vCPU, RAM, disque).</div>
+        <div class="card-desc">J'ai créé plusieurs VMs sous Proxmox avec différents OS : Windows Server 2022, Debian 12 et Windows 11. Pour chaque VM, j'ai défini les ressources adaptées (vCPU, RAM, disque) et configuré les paramètres réseau.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">3. Configuration de Hyper-V</div>
-        <div class="card-desc">En cours de formation, j'ai activé le rôle Hyper-V sur Windows Server 2022 via le Gestionnaire de serveur. J'ai créé un commutateur virtuel externe pour la communication réseau et déployé des VMs Windows pour valider le fonctionnement de l'hyperviseur Microsoft.</div>
+        <div class="card-desc">J'ai activé le rôle Hyper-V sur Windows Server 2022 via le Gestionnaire de serveur, créé un commutateur virtuel externe pour la communication réseau et déployé des VMs Windows pour comparer les deux approches d'hyperviseur.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">4. Gestion des snapshots</div>
-        <div class="card-desc">J'ai pris des snapshots réguliers sur Proxmox avant chaque manipulation importante des serveurs, ce qui m'a permis de revenir à un état stable en cas d'erreur lors des configurations (AD, GPO, GLPI). Une bonne pratique acquise en formation et directement appliquée chez Scalesi.</div>
+        <div class="card-desc">J'ai appris à créer des snapshots Proxmox avant chaque manipulation importante, permettant un retour arrière rapide en cas d'erreur. Cette pratique de sauvegarde à chaud est essentielle en production pour limiter les risques.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      Cette réalisation en formation m'a permis de maîtriser les deux hyperviseurs majeurs du marché. La pratique intensive de Proxmox au CFA m'a directement servi chez Scalesi où j'ai retrouvé cet outil chez plusieurs clients. La gestion des ressources virtuelles est aujourd'hui un réflexe dans mon travail quotidien d'administrateur systèmes.
+      La virtualisation est aujourd'hui incontournable dans les infrastructures IT. La formation m'a permis de maîtriser Proxmox et Hyper-V sur du matériel réel, une compétence que j'ai retrouvée directement chez Scalesi où plusieurs clients utilisent ces outils.
     </div>
   </div>
   <div class="page-footer">
@@ -1296,35 +1296,35 @@ textarea.form-input{resize:vertical;min-height:80px;}
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
     <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Configuration d'un serveur Windows – AD DS, DNS, DHCP, WSUS, DFS, Hyper-V</h2>
-    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Déploiement complet d'un Windows Server 2022 avec les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V dans le cadre du contexte pédagogique TechnoShop.</p>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons appris à déployer et configurer un Windows Server 2022 complet avec ses principaux rôles : AD DS, DNS, DHCP, WSUS, DFS et Hyper-V, sur un contexte pédagogique simulant une entreprise réelle.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Contexte</span>
+    <span class="block-label fi">Ce qu'on a appris</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>En formation BTS SIO SISR au CFA, nous avons travaillé sur le contexte pédagogique TechnoShop nécessitant une infrastructure Windows Server complète.</li><li>L'objectif était de maîtriser l'installation et la configuration des rôles serveurs principaux : AD DS, DNS, DHCP, WSUS, DFS et Hyper-V.</li><li>Cette réalisation est directement liée à la Situation 1 de l'épreuve E6 (AD DS, serveur de fichiers, GPO).</li>
+      <li>Installer et promouvoir un contrôleur de domaine Active Directory depuis zéro.</li><li>Configurer les rôles DNS, DHCP, WSUS et DFS pour répondre aux besoins d'une infrastructure d'entreprise.</li><li>Appliquer des stratégies de groupe (GPO) et sécuriser les accès aux partages réseau via les droits NTFS.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">1. Installation des rôles</div>
-        <div class="card-desc">Via le Gestionnaire de serveur, j'ai installé les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V sur la VM Windows Server 2022 hébergée sous Proxmox. J'ai promu le serveur en contrôleur de domaine pour le domaine technoshop.lan, configurant automatiquement le DNS intégré à AD.</div>
+        <div class="card-desc">Via le Gestionnaire de serveur, j'ai installé les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V. J'ai promu le serveur en contrôleur de domaine, ce qui a automatiquement configuré le DNS intégré à l'Active Directory.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">2. Configuration Active Directory et DNS</div>
-        <div class="card-desc">J'ai créé l'arborescence des Unités d'Organisation (OU) : Commercial, Technique, Administration, Informatique. J'ai créé les comptes utilisateurs, les groupes de sécurité et configuré les zones DNS de recherche directe et inverse pour le domaine technoshop.lan.</div>
+        <div class="card-desc">J'ai structuré l'annuaire en créant des Unités d'Organisation par service, des comptes utilisateurs et des groupes de sécurité. J'ai également configuré les zones DNS de recherche directe et inverse.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">3. Configuration DHCP, WSUS et DFS</div>
-        <div class="card-desc">J'ai configuré le DHCP (plage 192.168.1.50-200), mis en place WSUS pour centraliser les mises à jour Windows via GPO, et créé un espace de noms DFS pointant vers les partages du serveur de fichiers pour simplifier l'accès des utilisateurs.</div>
+        <div class="card-desc">J'ai configuré une étendue DHCP, mis en place WSUS pour centraliser les mises à jour Windows et créé un espace de noms DFS pour simplifier l'accès aux partages réseau depuis les postes clients.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">4. GPO et partages NTFS</div>
-        <div class="card-desc">J'ai configuré les GPO (lecteurs réseau, blocage clé USB, politique de mot de passe) et sécurisé les partages NTFS par service avec des groupes RW et RO. Cette partie constitue le cœur de la Situation 1 de l'épreuve E6.</div>
+        <div class="card-desc">J'ai appliqué des GPO (mappage de lecteurs réseau, blocage des clés USB, politique de mot de passe) et configuré les droits NTFS sur les dossiers partagés avec des groupes en lecture seule et en lecture/écriture.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      Cette réalisation en formation m'a permis de maîtriser l'ensemble des rôles Windows Server dans un environnement réaliste. Les compétences acquises ont été directement réutilisées chez Scalesi lors d'interventions sur les infrastructures clients, notamment pour la gestion des AD et des GPO.
+      La formation m'a permis de pratiquer l'administration Windows Server dans un contexte réaliste. Ces compétences sont aujourd'hui au cœur de mon travail chez Scalesi, où j'interviens régulièrement sur des Active Directory et des GPO pour les clients.
     </div>
   </div>
   <div class="page-footer">
@@ -1353,31 +1353,31 @@ textarea.form-input{resize:vertical;min-height:80px;}
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
     <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Rédaction de procédures et documentation technique</h2>
-    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Rédaction des documentations techniques des situations E6 (Windows Server 2022, GLPI Inventory) et des procédures réalisées en TP, avec mise en ligne sur le portfolio.</p>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons appris à rédiger des documentations techniques claires et structurées pour formaliser chaque réalisation — une compétence essentielle en milieu professionnel.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Contexte</span>
+    <span class="block-label fi">Ce qu'on a appris</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>En formation BTS SIO SISR, chaque réalisation technique doit être accompagnée d'une documentation claire et structurée.</li><li>J'ai rédigé les documentations techniques des situations E6 (47 pages pour la Situation 1, documentation GLPI Inventory pour la Situation 2) ainsi que les analyses de besoin associées.</li><li>Cette compétence est également utilisée chez Scalesi pour documenter les interventions chez les clients.</li>
+      <li>Structurer une documentation technique : contexte, prérequis, étapes numérotées, captures d'écran annotées, résultats attendus.</li><li>Rédiger une analyse de besoin : expression du besoin, choix technique argumenté, impacts, tests d'acceptation.</li><li>Produire des documents exploitables par n'importe quel technicien, même sans connaître le contexte initial.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">1. Documentation des situations E6</div>
-        <div class="card-desc">J'ai rédigé la documentation technique intégrale de la Situation 1 (Windows Server 2022 : AD DS, serveur de fichiers, GPO, sauvegarde) en 47 pages avec captures d'écran annotées, étapes numérotées et encadrés d'avertissement. Idem pour la Situation 2 (GLPI Inventory, GPO de déploiement).</div>
+        <div class="card-title">1. Documentation technique pas à pas</div>
+        <div class="card-desc">J'ai appris à rédiger des documentations techniques complètes avec captures d'écran annotées, étapes numérotées, encadrés ⚠ pour les points critiques et ✅ pour valider chaque étape. L'objectif est qu'un autre technicien puisse reproduire la configuration sans aide.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">2. Rédaction des analyses de besoin</div>
-        <div class="card-desc">Pour chaque situation, j'ai rédigé un document d'analyse du besoin (contexte, choix technique avec tableau comparatif, impact, maquette fonctionnelle, tests d'acceptation) servant de support à la présentation au jury E6.</div>
+        <div class="card-title">2. Analyse du besoin</div>
+        <div class="card-desc">En cours, nous avons appris à formaliser une analyse du besoin : identifier le problème, comparer les solutions techniques, évaluer l'impact sur le système existant et définir les critères de validation (tests d'acceptation).</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">3. Structure et mise en forme</div>
-        <div class="card-desc">Chaque document suit une structure professionnelle : en-tête avec référence BTS SIO, pagination, titres hiérarchisés, encadrés ⚠ pour les avertissements, 💡 pour les astuces et ✅ pour les validations. Mis en ligne sur le portfolio GitHub Pages.</div>
+        <div class="card-title">3. Mise en forme professionnelle</div>
+        <div class="card-desc">Chaque document respecte une structure professionnelle : en-tête standardisé, pagination, hiérarchie des titres, encadrés colorés selon la criticité. Ces conventions facilitent la lecture et donnent un aspect soigné aux livrables.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      La rédaction de documentations techniques en formation m'a appris à structurer et formaliser des procédures complexes de manière claire et reproductible. Cette compétence est directement transférable chez Scalesi où je documente les interventions chez les clients.
+      Savoir documenter est aussi important que savoir configurer. La formation m'a donné les méthodes pour produire des livrables professionnels clairs. Chez Scalesi, je documente systématiquement chaque intervention pour que le client et l'équipe gardent une trace exploitable.
     </div>
   </div>
   <div class="page-footer">
@@ -1406,12 +1406,12 @@ textarea.form-input{resize:vertical;min-height:80px;}
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
     <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span> <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
     <h2 class="page-title">Configuration réseau – Switch Cisco, Routeur Cisco, Pare-feu pfSense</h2>
-    <p class="page-subtitle">Réalisation menée à la fois en formation au CFA (travaux pratiques sur équipements Cisco réels) et en alternance chez Scalesi (interventions chez des clients pour la mise en place ou la refonte de leur infrastructure réseau).</p>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons pratiqué la configuration d'équipements réseau Cisco sur du matériel réel en salle de TP — des compétences que j'ai ensuite appliquées chez Scalesi lors d'interventions chez des clients.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Contexte</span>
+    <span class="block-label fi">Ce qu'on a appris (et appliqué)</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>En formation au CFA, j'ai pratiqué la configuration d'équipements Cisco (switches, routeurs) sur du matériel réel en salle de TP réseau.</li><li>En alternance chez Scalesi, j'ai appliqué ces compétences lors d'interventions chez des clients : configuration de VLANs, routage inter-VLAN et déploiement de pare-feu pfSense.</li><li>Les deux contextes sont complémentaires : la théorie et les bases en formation, la pratique en conditions réelles chez Scalesi.</li>
+      <li>Configurer des VLANs et le routage inter-VLAN en CLI Cisco IOS sur des switches et routeurs physiques en salle de TP.</li><li>Mettre en place pfSense comme pare-feu et routeur : interfaces, règles de filtrage, NAT.</li><li>Appliquer ces compétences en conditions réelles chez Scalesi lors d'interventions réseau chez des clients.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
@@ -1463,35 +1463,35 @@ textarea.form-input{resize:vertical;min-height:80px;}
     <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
     <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
     <h2 class="page-title">Supervision du réseau et des serveurs</h2>
-    <p class="page-subtitle">Réalisation effectuée en cours de formation au CFA CCI de Saumur. Mise en place d'un outil de supervision (Zabbix / PRTG) pour surveiller en temps réel l'état des serveurs et équipements réseau de l'infrastructure de TP.</p>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons découvert et pratiqué les outils de supervision réseau et serveurs. J'ai installé et configuré Zabbix / PRTG sur les infrastructures de TP pour apprendre à monitorer un SI en temps réel.</p>
   </div>
   <div class="section-wrap">
-    <span class="block-label fi">Contexte</span>
+    <span class="block-label fi">Ce qu'on a appris</span>
     <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
-      <li>En formation BTS SIO SISR, nous avons mis en place un système de supervision pour surveiller l'infrastructure montée en TP (serveurs Windows, Debian, switches).</li><li>L'objectif était de maîtriser les outils de monitoring utilisés en production et d'apprendre à configurer des alertes automatiques.</li><li>Cette compétence est directement utilisée chez Scalesi pour surveiller les infrastructures des clients.</li>
+      <li>Comprendre les principes du monitoring : collecte de métriques via SNMP et ICMP, seuils d'alerte, tableaux de bord.</li><li>Installer et configurer un outil de supervision (Zabbix / PRTG), ajouter des équipements et définir les métriques à surveiller.</li><li>Interpréter les alertes et réagir de façon appropriée selon la criticité de l'anomalie détectée.</li>
     </ul>
     <span class="block-label fi">Mise en œuvre</span>
     <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">1. Installation de l'outil de supervision</div>
-        <div class="card-desc">En formation, j'ai installé un outil de supervision (Zabbix / PRTG) sur une VM dédiée sous Proxmox. L'outil a été configuré pour découvrir automatiquement les équipements du réseau de TP via SNMP et ICMP.</div>
+        <div class="card-desc">J'ai installé Zabbix / PRTG sur une VM dédiée et configuré la découverte automatique des équipements du réseau via SNMP et ICMP. Cette étape m'a permis de comprendre comment un outil de supervision interroge les équipements.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">2. Ajout des équipements à superviser</div>
-        <div class="card-desc">J'ai ajouté les serveurs Windows Server 2022, Debian 12 (GLPI) et les équipements réseau dans la liste des équipements supervisés. Pour chaque équipement, j'ai défini les métriques : CPU, RAM, espace disque, disponibilité des services.</div>
+        <div class="card-title">2. Ajout et paramétrage des équipements</div>
+        <div class="card-desc">J'ai ajouté les serveurs et équipements réseau et défini pour chacun les métriques pertinentes : charge CPU, consommation RAM, espace disque, disponibilité des services. On apprend ainsi à identifier ce qui est réellement utile à surveiller.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
         <div class="card-title">3. Configuration des alertes</div>
-        <div class="card-desc">Des seuils d'alerte ont été définis pour chaque métrique. En cas de dépassement, une notification est envoyée automatiquement avec le détail de l'anomalie. J'ai testé le déclenchement des alertes en simulant des pannes sur les VMs de TP.</div>
+        <div class="card-desc">J'ai défini des seuils d'alerte et configuré les notifications automatiques. En cours, on a simulé des pannes pour tester les alertes et comprendre comment réagir selon la criticité — une mise en situation très proche du réel.</div>
       </div>
       <div class="card" style="margin-bottom:0;">
-        <div class="card-title">4. Création des tableaux de bord</div>
-        <div class="card-desc">J'ai créé des tableaux de bord synthétiques permettant de visualiser en un coup d'œil l'état global de l'infrastructure, avec des indicateurs colorés (vert/orange/rouge). Cette vue d'ensemble est essentielle pour détecter rapidement une anomalie.</div>
+        <div class="card-title">4. Tableaux de bord</div>
+        <div class="card-desc">J'ai créé des tableaux de bord synthétiques avec des indicateurs colorés (vert/orange/rouge) pour visualiser d'un coup d'œil l'état de l'infrastructure. Ce type de vue est indispensable en production pour une réaction rapide.</div>
       </div>
     </div>
     <span class="block-label fi">Conclusion</span>
     <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
-      Cette réalisation en formation m'a permis de maîtriser les outils de supervision professionnels. Les compétences acquises sont directement réutilisées chez Scalesi où je participe à la surveillance des infrastructures des clients via des outils similaires.
+      La supervision est une compétence clé que j'ai découverte en cours avant de la retrouver en entreprise. Chez Scalesi, ces notions sont directement appliquées pour surveiller les infrastructures des clients et anticiper les incidents.
     </div>
   </div>
   <div class="page-footer">
