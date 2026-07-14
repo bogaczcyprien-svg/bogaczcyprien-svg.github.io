@@ -2445,60 +2445,13 @@ textarea.form-input{resize:vertical;min-height:80px;}
       <a onclick="goE5('service')" id="n-e5-service" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">🖥️</span>Mettre à disposition</a>
       <a onclick="goE5('developpement')" id="n-e5-developpement" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">📈</span>Développement pro</a>
     </div>
-    <a onclick="toggleE6()" id="n-e6"><span class="nav-icon">🔒</span>Épreuve E6</a>
+    <a onclick="go('e6')" id="n-e6"><span class="nav-icon">🔒</span>Épreuve E6</a>
   </nav>
 </div>
 
-<!-- MODAL MOT DE PASSE E6 -->
-<div id="e6-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;align-items:center;justify-content:center;">
-  <div style="background:white;border-radius:20px;padding:2.5rem;width:380px;max-width:90vw;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
-    <div style="font-size:2rem;margin-bottom:1rem;">🔒</div>
-    <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:0.4rem;color:#1A1A18;">Épreuve E6</div>
-    <div style="font-size:0.82rem;color:#6B6860;margin-bottom:1.5rem;">Cette section est protégée.<br>Veuillez entrer le mot de passe.</div>
-    <input type="password" id="e6-pwd-input" placeholder="Mot de passe..."
-      style="width:100%;padding:0.75rem 1rem;border:1.5px solid #E0DDD6;border-radius:10px;font-size:0.9rem;font-family:'Inter',sans-serif;outline:none;margin-bottom:0.75rem;text-align:center;"
-      onkeydown="if(event.key==='Enter')checkE6Pwd()">
-    <div id="e6-pwd-error" style="display:none;color:#EF4444;font-size:0.78rem;margin-bottom:0.75rem;">Mot de passe incorrect.</div>
-    <div style="display:flex;gap:0.75rem;justify-content:center;">
-      <button onclick="closeE6Modal()" style="padding:0.65rem 1.2rem;border-radius:10px;border:1.5px solid #E0DDD6;background:transparent;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Annuler</button>
-      <button onclick="checkE6Pwd()" style="padding:0.65rem 1.4rem;border-radius:10px;border:none;background:#FF4D1C;color:white;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Accéder →</button>
-    </div>
-  </div>
-</div>
-<!-- E5 accessible sans mot de passe -->
+<!-- E5/E6 accessibles sans mot de passe -->
 
 <script>
-const E6_PWD = 'SIOe62026!';
-let e6Unlocked = false;
-
-function toggleE6(){
-  if(!e6Unlocked){
-    document.getElementById('e6-modal').style.display='flex';
-    setTimeout(()=>document.getElementById('e6-pwd-input').focus(),100);
-    return;
-  }
-  go('e6');
-}
-
-function checkE6Pwd(){
-  const val=document.getElementById('e6-pwd-input').value;
-  const err=document.getElementById('e6-pwd-error');
-  if(val===E6_PWD){
-    e6Unlocked=true;
-    closeE6Modal();
-    go('e6');
-  } else {
-    err.style.display='block';
-    document.getElementById('e6-pwd-input').value='';
-    document.getElementById('e6-pwd-input').focus();
-  }
-}
-
-function closeE6Modal(){
-  document.getElementById('e6-modal').style.display='none';
-  document.getElementById('e6-pwd-input').value='';
-  document.getElementById('e6-pwd-error').style.display='none';
-}
 let e5Unlocked = true;
 let pendingE5Page = null;
 
