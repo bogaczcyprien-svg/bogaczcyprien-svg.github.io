@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyprien Bogacz — Portfolio BTS SIO SISR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+.wsb-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+@media(max-width:600px){.wsb-grid{grid-template-columns:1fr !important;}}
+body{font-family:'Inter',sans-serif;background:#F2F0EB;color:#1A1A18;display:flex;}
+
+/* ── SIDEBAR DROITE ── */
+#sidebar{
+  position:fixed;top:0;right:0;height:100vh;
+  width:260px;background:#1A1A18;
+  display:flex;flex-direction:column;
+  z-index:200;
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+#sidebar .logo{
+  padding:2rem 1.5rem 1.5rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+#sidebar .logo-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.05rem;color:white;letter-spacing:-0.02em;
+  line-height:1.2;
+}
+#sidebar .logo-sub{
+  font-size:0.68rem;color:rgba(255,255,255,0.4);
+  margin-top:0.25rem;text-transform:uppercase;letter-spacing:0.1em;
+}
+nav{padding:1rem 0;flex:1;overflow-y:auto;}
+nav a{
+  display:flex;align-items:center;gap:0.75rem;
+  padding:0.65rem 1.5rem;
+  font-size:0.82rem;font-weight:500;
+  color:rgba(255,255,255,0.5);
+  text-decoration:none;
+  transition:all 0.18s;
+  border-right:3px solid transparent;
+  cursor:pointer;
+}
+nav a:hover{color:white;background:rgba(255,255,255,0.05);}
+nav a.active{color:white;border-right-color:#FF4D1C;background:rgba(255,77,28,0.08);}
+nav a .nav-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0;}
+nav .nav-section{
+  font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;
+  color:rgba(255,255,255,0.2);padding:1rem 1.5rem 0.4rem;
+}
+nav .nav-empty{
+  font-size:0.7rem;color:rgba(255,255,255,0.2);
+  padding:0.4rem 1.5rem 0.4rem 3.7rem;font-style:italic;
+}
+
+/* HAMBURGER (mobile) */
+#menu-btn{
+  display:none;position:fixed;top:1rem;right:1rem;z-index:300;
+  background:#1A1A18;border:none;color:white;
+  width:40px;height:40px;border-radius:10px;
+  font-size:1.2rem;cursor:pointer;
+}
+
+/* ── MAIN ── */
+#main{
+  margin-right:260px;
+  width:calc(100% - 260px);
+  height:100vh;
+  overflow-y:scroll;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100%;}
+.page.active{display:block;}
+
+/* ── HERO ACCUEIL ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.hero-left{
+  padding:5rem 3.5rem 3rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid #E0DDD6;
+  background:#FAFAF7;
+  position:relative;
+}
+.hero-left::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(180deg,#FF4D1C,#A855F7,#06B6D4);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
+  color:#FF4D1C;margin-bottom:2rem;
+}
+.hero-tag::before{content:'';width:20px;height:2px;background:#FF4D1C;border-radius:2px;}
+.hero-h1{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(3.5rem,6vw,6rem);
+  line-height:0.92;letter-spacing:-0.04em;
+  margin-bottom:2rem;
+}
+.hero-h1 span{
+  display:block;font-weight:700;font-size:0.55em;
+  color:#8A8780;letter-spacing:-0.02em;margin-top:0.25rem;
+}
+.hero-desc{
+  font-size:0.95rem;color:#6B6860;line-height:1.75;
+  max-width:380px;margin-bottom:2.5rem;
+  padding-left:1rem;border-left:2px solid #E0DDD6;
+}
+.hero-infos{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2.5rem;}
+.hero-info-item{
+  display:flex;align-items:center;gap:0.75rem;
+  font-size:0.82rem;color:#6B6860;
+}
+.hero-info-item .badge{
+  font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;
+  background:#1A1A18;color:white;padding:0.15rem 0.5rem;border-radius:4px;
+  flex-shrink:0;
+}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.7rem 1.4rem;border-radius:10px;
+  font-size:0.82rem;font-weight:600;cursor:pointer;
+  text-decoration:none;border:none;transition:all 0.2s;
+  font-family:'Inter',sans-serif;
+}
+.btn-primary{background:#FF4D1C;color:white;box-shadow:0 4px 14px rgba(255,77,28,0.3);}
+.btn-primary:hover{background:#e03d10;transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,77,28,0.4);}
+.btn-outline{background:transparent;color:#1A1A18;border:1.5px solid #1A1A18;}
+.btn-outline:hover{background:#1A1A18;color:white;transform:translateY(-2px);}
+.btn-ghost{background:#F2F0EB;color:#1A1A18;border:1.5px solid #E0DDD6;}
+.btn-ghost:hover{border-color:#1A1A18;transform:translateY(-1px);}
+
+/* Hero droite — compétences */
+.hero-right{
+  display:grid;grid-template-rows:repeat(5,1fr);
+  background:#FAFAF7;
+}
+.comp-row{
+  display:flex;align-items:center;gap:1rem;
+  padding:0 2.5rem;border-bottom:1px solid #E0DDD6;
+  transition:all 0.22s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.comp-row:last-child{border-bottom:none;}
+.comp-row::after{
+  content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.22s;
+}
+.comp-row:nth-child(1)::after{background:rgba(255,77,28,0.05);}
+.comp-row:nth-child(2)::after{background:rgba(168,85,247,0.05);}
+.comp-row:nth-child(3)::after{background:rgba(6,182,212,0.05);}
+.comp-row:nth-child(4)::after{background:rgba(16,185,129,0.05);}
+.comp-row:nth-child(5)::after{background:rgba(245,158,11,0.05);}
+.comp-row:hover::after{opacity:1;}
+.comp-row:hover .comp-name{color:#FF4D1C;}
+.comp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;position:relative;z-index:1;}
+.comp-num{font-size:0.62rem;color:#C8C5BE;font-weight:600;position:relative;z-index:1;width:24px;}
+.comp-info{flex:1;position:relative;z-index:1;}
+.comp-name{font-weight:600;font-size:0.88rem;margin-bottom:0.15rem;transition:color 0.2s;}
+.comp-sub{font-size:0.72rem;color:#8A8780;}
+
+/* ── SECTIONS GÉNÉRIQUES ── */
+.section-wrap{max-width:900px;margin:0 auto;padding:4rem 3rem 2rem;}
+
+.page-intro{
+  padding:3rem 3rem 0;
+  max-width:900px;margin:0 auto;
+}
+.page-label{
+  font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;
+  color:#FF4D1C;margin-bottom:0.75rem;display:block;
+}
+.page-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  letter-spacing:-0.03em;line-height:1.05;
+  margin-bottom:0.75rem;
+}
+.page-subtitle{font-size:0.95rem;color:#6B6860;line-height:1.7;max-width:580px;}
+
+.divider{border:none;border-top:1px solid #E0DDD6;margin:2.5rem 0;}
+.block-label{
+  font-size:0.65rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.15em;color:#A855F7;
+  margin-bottom:1.25rem;display:block;
+}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem;}
+.card{
+  background:white;border:1px solid #E0DDD6;
+  border-radius:16px;padding:1.5rem;
+  transition:all 0.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.07);border-color:#C8C5BE;}
+.card-icon{font-size:1.4rem;margin-bottom:0.75rem;}
+.card-title{font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;}
+.card-desc{font-size:0.78rem;color:#6B6860;line-height:1.6;}
+
+/* LISTE NUMÉROTÉE */
+.num-list{display:flex;flex-direction:column;border-top:1px solid #E0DDD6;margin-bottom:2rem;}
+.num-item{
+  display:grid;grid-template-columns:2.5rem 1fr 2fr;
+  gap:1.5rem;align-items:start;
+  padding:1.25rem 0.5rem;border-bottom:1px solid #E0DDD6;
+  transition:all 0.2s;border-left:3px solid transparent;
+}
+.num-item:hover{background:rgba(255,77,28,0.03);border-left-color:#FF4D1C;padding-left:1rem;}
+.num-n{font-size:0.62rem;color:#C8C5BE;font-weight:600;padding-top:0.15rem;}
+.num-title{font-weight:700;font-size:0.88rem;color:#1A1A18;transition:color 0.18s;}
+.num-title[onclick]{cursor:pointer;}
+.num-title[onclick]:hover{color:#FF4D1C;}
+.num-title a{text-decoration:none;color:inherit;}
+.num-desc{font-size:0.78rem;color:#6B6860;line-height:1.6;}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E0DDD6;border:1px solid #E0DDD6;border-radius:16px;overflow:hidden;margin-bottom:2rem;}
+.info-block{background:#FAFAF7;padding:1.5rem;}
+.info-block-title{font-weight:700;font-size:0.85rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+.info-block ul{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+.info-block li{font-size:0.77rem;color:#6B6860;padding-left:1rem;position:relative;}
+.info-block li::before{content:'→';position:absolute;left:0;color:#FF4D1C;font-size:0.6rem;top:0.15rem;}
+
+/* OPTIONS 2 COL */
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+.opt-card{background:white;border:1.5px solid #E0DDD6;border-radius:16px;padding:1.75rem;transition:all 0.2s;}
+.opt-card.mine{border-color:#FF4D1C;background:linear-gradient(135deg,white,rgba(255,77,28,0.03));}
+.opt-chip{
+  font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;
+  padding:0.2rem 0.6rem;border-radius:6px;margin-bottom:1rem;display:inline-block;
+}
+.opt-chip.mine{background:#FF4D1C;color:white;}
+.opt-chip.other{background:#E0DDD6;color:#6B6860;}
+.opt-title{font-weight:700;font-size:0.95rem;margin-bottom:0.5rem;}
+.opt-desc{font-size:0.8rem;color:#6B6860;line-height:1.65;margin-bottom:1rem;}
+.tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.tag{font-size:0.65rem;padding:0.2rem 0.55rem;border-radius:6px;background:#F2F0EB;color:#4A4840;border:1px solid #E0DDD6;}
+.tag.o{background:rgba(255,77,28,0.08);border-color:rgba(255,77,28,0.2);color:#FF4D1C;}
+.tag.p{background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.2);color:#A855F7;}
+.tag.t{background:rgba(6,182,212,0.08);border-color:rgba(6,182,212,0.2);color:#06B6D4;}
+
+/* BANNER SOMBRE */
+.dark-banner{
+  background:#1A1A18;color:white;
+  border-radius:20px;padding:2.5rem;
+  margin-bottom:2rem;position:relative;overflow:hidden;
+}
+.dark-banner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#FF4D1C,#A855F7,#06B6D4,#10B981);
+}
+.dark-banner-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#F5C842;margin-bottom:0.3rem;}
+.dark-banner-sub{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;}
+.dark-banner-desc{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.8;max-width:500px;}
+.dark-banner-stats{display:flex;gap:1rem;margin-top:1.5rem;}
+.dark-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:0.75rem 1.25rem;text-align:center;}
+.dark-stat-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#F5C842;display:block;}
+.dark-stat-label{font-size:0.65rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;}
+
+/* VIDEO */
+.video-wrap{border-radius:16px;overflow:hidden;border:1px solid #E0DDD6;margin-bottom:2rem;background:white;}
+.video-wrap iframe{width:100%;height:340px;display:block;border:none;}
+
+/* CONTACT */
+.contact-section{
+  background:white;border:1px solid #E0DDD6;border-radius:20px;
+  padding:2rem;margin:3rem 0 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+}
+.contact-left h3{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;margin-bottom:0.4rem;}
+.contact-left p{font-size:0.82rem;color:#6B6860;line-height:1.6;margin-bottom:1.5rem;}
+.contact-social{display:flex;gap:0.75rem;}
+.social-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.55rem 1rem;border-radius:10px;
+  font-size:0.78rem;font-weight:600;text-decoration:none;
+  background:#F2F0EB;color:#1A1A18;border:1px solid #E0DDD6;
+  transition:all 0.18s;cursor:pointer;
+}
+.social-btn:hover{background:#1A1A18;color:white;border-color:#1A1A18;}
+.contact-form{display:flex;flex-direction:column;gap:0.75rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+.form-input{
+  width:100%;padding:0.65rem 0.9rem;
+  border:1.5px solid #E0DDD6;border-radius:10px;
+  font-size:0.82rem;font-family:'Inter',sans-serif;
+  background:#FAFAF7;color:#1A1A18;
+  transition:border-color 0.18s;outline:none;
+}
+.form-input:focus{border-color:#FF4D1C;background:white;}
+.form-input::placeholder{color:#A8A5A0;}
+textarea.form-input{resize:vertical;min-height:80px;}
+.form-submit{
+  background:#FF4D1C;color:white;border:none;
+  padding:0.7rem 1.5rem;border-radius:10px;
+  font-size:0.82rem;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:all 0.2s;
+  align-self:flex-start;
+}
+.form-submit:hover{background:#e03d10;transform:translateY(-1px);}
+.form-success{
+  display:none;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);
+  border-radius:10px;padding:0.75rem 1rem;font-size:0.8rem;color:#059669;
+}
+
+/* VEILLE — article card */
+.article-card{
+  background:white;border:1px solid #E0DDD6;border-radius:16px;
+  overflow:hidden;transition:all 0.22s;
+}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.08);border-color:#C8C5BE;}
+.article-top-bar{height:3px;}
+.article-top-bar.security{background:linear-gradient(90deg,#EF4444,#F97316);}
+.article-top-bar.system{background:linear-gradient(90deg,#A855F7,#6366F1);}
+.article-top-bar.network{background:linear-gradient(90deg,#06B6D4,#10B981);}
+.article-body{padding:1.5rem;}
+.article-meta{font-size:0.65rem;color:#8A8780;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;}
+.article-title{font-weight:700;font-size:0.88rem;margin-bottom:0.5rem;line-height:1.4;}
+.article-excerpt{font-size:0.76rem;color:#6B6860;line-height:1.6;}
+
+/* GLPI card highlight */
+.glpi-highlight{
+  background:white;border:1px solid #E0DDD6;border-radius:20px;
+  padding:2.5rem;margin-bottom:2rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;
+}
+
+.glpi-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:3rem;
+  letter-spacing:-0.05em;color:#FF4D1C;margin-bottom:0.5rem;
+}
+.glpi-tagline{font-size:0.85rem;color:#6B6860;line-height:1.7;margin-bottom:1.5rem;}
+.glpi-features{display:flex;flex-direction:column;gap:0.5rem;}
+.glpi-feat{
+  display:flex;align-items:center;gap:0.75rem;
+  font-size:0.8rem;color:#4A4840;
+}
+.glpi-feat::before{content:'✓';color:#10B981;font-weight:700;font-size:0.7rem;}
+.glpi-right{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+.glpi-stat{background:#F2F0EB;border-radius:12px;padding:1.25rem;text-align:center;}
+.glpi-stat-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#FF4D1C;display:block;margin-bottom:0.2rem;}
+.glpi-stat-label{font-size:0.7rem;color:#6B6860;}
+
+/* PAGES VIDES */
+.empty-page{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:80vh;text-align:center;padding:3rem;
+}
+.empty-icon{font-size:3rem;margin-bottom:1.5rem;opacity:0.3;}
+.empty-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-0.02em;color:#4A4840;margin-bottom:0.5rem;}
+.empty-desc{font-size:0.85rem;color:#8A8780;}
+
+/* ANIM */
+.fi{opacity:0;transform:translateY(14px);transition:opacity 0.45s ease,transform 0.45s ease;}
+.fi.show{opacity:1;transform:translateY(0);}
+
+/* FOOTER PAGE */
+.page-footer{padding:2rem 3rem 3rem;max-width:900px;margin:0 auto;}
+
+@media(max-width:900px){
+  #sidebar{transform:translateX(100%);}
+  #sidebar.open{transform:translateX(0);}
+  #menu-btn{display:flex;align-items:center;justify-content:center;}
+  #main{margin-right:0;width:100%;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .contact-section{grid-template-columns:1fr;}
+  .opt-grid,.info-grid,.glpi-highlight{grid-template-columns:1fr;}
+  .num-item{display:flex;flex-direction:column;gap:0.4rem;padding:1rem 0.5rem;}
+  .num-desc{display:block;font-size:0.75rem;color:#6B6860;line-height:1.5;}
+  .section-wrap,.page-intro,.page-footer{padding-left:1.5rem;padding-right:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<button id="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div id="main">
+
+<!-- ══ ACCUEIL ══ -->
+<div id="p-accueil" class="page active">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag fi">BTS SIO SISR · Promotion 2026</div>
+      <h1 class="hero-h1 fi">
+        Cyprien<br>Bogacz
+        <span>Technicien Systèmes & Réseaux</span>
+      </h1>
+      <p class="hero-desc fi">Je construis et maintiens des infrastructures informatiques. En alternance chez Scalesi, j'interviens directement chez leurs clients pour déployer leurs serveurs, configurer leurs réseaux et sécuriser leurs systèmes. Passionné par tout ce qui touche aux infras — du câble réseau à l'hyperviseur.</p>
+      <div class="hero-infos fi">
+        <div class="hero-info-item"><span class="badge">📍</span>Tours, Indre-et-Loire (37)</div>
+        <div class="hero-info-item"><span class="badge">🎂</span>19 ans, né à Tours</div>
+        <div class="hero-info-item"><span class="badge">🏢</span>Alternant technicien · Scalesi</div>
+        <div class="hero-info-item"><span class="badge">🎓</span>BTS SIO SISR · session 2026</div>
+      </div>
+      <div class="hero-btns fi">
+        <a href="cv_cyprien_bogacz.pdf" target="_blank" class="btn btn-primary">Télécharger mon CV →</a>
+      </div>
+    </div>
+    <div class="hero-right fi">
+      <div class="comp-row">
+        <div class="comp-num">01</div>
+        <div class="comp-dot" style="background:#FF4D1C;"></div>
+        <div class="comp-info"><div class="comp-name">Serveurs Windows & Linux</div><div class="comp-sub">AD DS, DNS, DHCP, Debian 12, GPO</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-num">02</div>
+        <div class="comp-dot" style="background:#A855F7;"></div>
+        <div class="comp-info"><div class="comp-name">Infrastructure réseau</div><div class="comp-sub">Cisco, VLANs, pfSense, Wi-Fi pro</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-num">03</div>
+        <div class="comp-dot" style="background:#06B6D4;"></div>
+        <div class="comp-info"><div class="comp-name">Virtualisation</div><div class="comp-sub">Proxmox VE, Hyper-V, snapshots</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-num">04</div>
+        <div class="comp-dot" style="background:#10B981;"></div>
+        <div class="comp-info"><div class="comp-name">Sécurité & accès</div><div class="comp-sub">GPO, droits NTFS, audits, pare-feu</div></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-num">05</div>
+        <div class="comp-dot" style="background:#F59E0B;"></div>
+        <div class="comp-info"><div class="comp-name">Terrain & support</div><div class="comp-sub">GLPI, NinjaRMM, dépannage on-site</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question, remarque ou opportunité professionnelle.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required id="c-name">
+          <input type="email" class="form-input" placeholder="Votre email" required id="c-email">
+        </div>
+        <textarea class="form-input" placeholder="Votre message..." required id="c-msg"></textarea>
+        <button type="submit" class="form-submit">Envoyer le message →</button>
+        <div class="form-success" id="c-success">Message envoyé ! Je vous répondrai rapidement.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BTS SIO ══ -->
+<div id="p-bts" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Ma formation</span>
+    <h2 class="page-title">BTS Services Informatiques aux Organisations</h2>
+    <p class="page-subtitle">Le BTS SIO option SISR forme des techniciens capables d'administrer et maintenir les infrastructures informatiques des entreprises.</p>
+  </div>
+  <div class="section-wrap">
+
+    <span class="block-label fi">Objectifs de la formation</span>
+    <div class="cards-grid fi">
+      <div class="card">
+        <div class="card-icon">🖧</div>
+        <div class="card-title">Administrer les systèmes</div>
+        <div class="card-desc">Installer et configurer des serveurs Windows Server et Linux, gérer les utilisateurs via Active Directory, déployer des GPO et sécuriser les accès.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">Gérer les réseaux</div>
+        <div class="card-desc">Concevoir et configurer des réseaux d'entreprise — VLANs, routage, pare-feu pfSense, équipements Cisco — pour garantir la connectivité et la sécurité.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <div class="card-title">Sécuriser l'infrastructure</div>
+        <div class="card-desc">Mettre en place des politiques de sécurité, gérer les habilitations, surveiller les systèmes et réagir aux incidents pour protéger le SI.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">Virtualiser et superviser</div>
+        <div class="card-desc">Déployer des environnements virtualisés avec Proxmox et Hyper-V, superviser les infrastructures avec Zabbix ou PRTG et gérer la continuité de service.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛠️</div>
+        <div class="card-title">Assurer le support</div>
+        <div class="card-desc">Gérer le parc informatique, traiter les tickets d'incidents, assister les utilisateurs et maintenir la documentation technique à jour.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💾</div>
+        <div class="card-title">Garantir la continuité</div>
+        <div class="card-desc">Mettre en place des plans de sauvegarde, tester les restaurations et définir des procédures de reprise d'activité pour protéger les données de l'entreprise.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <span class="block-label fi">Les épreuves du BTS SIO</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+      <div class="card" style="border-left:3px solid #FF4D1C;">
+        <div class="card-title">E1 — Culture générale</div>
+        <div class="card-desc">Expression et communication écrite en français.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #A855F7;">
+        <div class="card-title">E2 — Anglais</div>
+        <div class="card-desc">Compréhension et expression en anglais professionnel.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #06B6D4;">
+        <div class="card-title">E3 — Mathématiques</div>
+        <div class="card-desc">Mathématiques appliquées à l'informatique.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #10B981;">
+        <div class="card-title">E4 — Culture économique</div>
+        <div class="card-desc">Économie, droit et management.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #F59E0B;">
+        <div class="card-title">E5 — Support & mise à disposition</div>
+        <div class="card-desc">Réalisations professionnelles en entreprise — portfolio de réalisations.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #EF4444;">
+        <div class="card-title">E6 — Administration des SI</div>
+        <div class="card-desc">Situations professionnelles SISR — deux situations présentées au jury.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #8B5CF6;">
+        <div class="card-title">E7 — Cybersécurité</div>
+        <div class="card-desc">Sécurité des services informatiques et protection des données.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <span class="block-label fi">Le BTS SIO au CFA CCI de Saumur</span>
+    <div class="dark-banner fi">
+      <div class="dark-banner-title">CFA CCI Saumur</div>
+      <div class="dark-banner-sub">Centre de Formation d'Apprentis · Indre-et-Loire</div>
+      <p class="dark-banner-desc">Le BTS SIO est proposé uniquement en option SISR au CFA de la CCI de Saumur. La formation alterne cours théoriques, travaux pratiques sur matériel réel et temps en entreprise. Un cadre idéal pour mettre directement en pratique ce qu'on apprend.</p>
+      <div class="dark-banner-stats">
+        <div class="dark-stat"><span class="dark-stat-val">2 ans</span><span class="dark-stat-label">de formation</span></div>
+        <div class="dark-stat"><span class="dark-stat-val">SISR</span><span class="dark-stat-label">seule option</span></div>
+        <div class="dark-stat"><span class="dark-stat-val">ALT.</span><span class="dark-stat-label">disponible</span></div>
+      </div>
+    </div>
+    <div class="video-wrap fi">
+      <iframe src="https://www.youtube.com/embed/ZjYgFxbY2Sg" title="Filière Informatique Numérique — CFA CCI Saumur" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MON ALTERNANCE ══ -->
+<div id="p-alt" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Où je travaille</span>
+    <h2 class="page-title">Mon alternance chez Scalesi</h2>
+    <p class="page-subtitle">Une ESN qui intervient chez ses clients pour monter et maintenir leur infrastructure IT. Chaque client a son environnement, ses contraintes — pas deux missions identiques.</p>
+  </div>
+  <div class="section-wrap">
+    <div class="dark-banner fi">
+      <div class="dark-banner-title">Scalesi</div>
+      <div class="dark-banner-sub">Prestataire informatique · ESN · Indre-et-Loire</div>
+      <p class="dark-banner-desc">Scalesi intervient directement chez ses clients pour concevoir, déployer et maintenir leurs infrastructures. Les missions sont concrètes : Active Directory, switches Cisco, serveurs, support utilisateurs, sauvegardes. J'interviens sur site avec les techniciens seniors sur de vrais environnements de production.</p>
+      <div class="dark-banner-stats">
+        <div class="dark-stat"><span class="dark-stat-val">2 ans</span><span class="dark-stat-label">en alternance</span></div>
+        <div class="dark-stat"><span class="dark-stat-val">SISR</span><span class="dark-stat-label">spécialité</span></div>
+        <div class="dark-stat"><span class="dark-stat-val">37</span><span class="dark-stat-label">Indre-et-Loire</span></div>
+      </div>
+    </div>
+
+    <span class="block-label fi">Ce sur quoi j'interviens au quotidien</span>
+    <div class="num-list fi">
+      <div class="num-item"><div class="num-n">01</div><div class="num-title">Déploiement de serveurs Windows</div><div class="num-desc">Active Directory, DNS, DHCP, WSUS, DFS — je monte l'infrastructure Windows Server 2022 depuis zéro et la configure selon le cahier des charges client.</div></div>
+      <div class="num-item"><div class="num-n">02</div><div class="num-title">Configuration des réseaux</div><div class="num-desc">VLANs sur switches Cisco, routage, pfSense comme pare-feu — je segmente et configure les équipements pour que tout communique correctement.</div></div>
+      <div class="num-item"><div class="num-n">03</div><div class="num-title">Support & dépannage</div><div class="num-desc">Tickets GLPI, interventions sur site, télémaintenance via TeamViewer, AnyDesk et NinjaRMM. De la prise en charge jusqu'à la clôture du ticket.</div></div>
+      <div class="num-item"><div class="num-n">04</div><div class="num-title">Sécurité des accès et des données</div><div class="num-desc">GPO de sécurité, droits NTFS par groupe AD, blocage USB, audit des comptes — seules les bonnes personnes accèdent aux bonnes ressources.</div></div>
+      <div class="num-item"><div class="num-n">05</div><div class="num-title">Sauvegardes et reprise d'activité</div><div class="num-desc">Windows Server Backup configuré avec planification nocturne, test de restauration pour valider que la sauvegarde est réellement exploitable.</div></div>
+      <div class="num-item"><div class="num-n">06</div><div class="num-title">Rédaction de procédures</div><div class="num-desc">Chaque intervention est documentée — procédures, guides utilisateurs. Pour que le client comprenne son infra et que le technicien suivant ne parte pas de zéro.</div></div>
+    </div>
+
+    <hr class="divider">
+    <span class="block-label fi">L'outillage du quotidien</span>
+    <div class="cards-grid fi">
+      <div class="card"><div class="card-icon">🖥️</div><div class="card-title">Systèmes</div><div class="card-desc">Windows Server 2022, Linux Debian 12, Active Directory, GPO, Proxmox VE</div></div>
+      <div class="card"><div class="card-icon">🌐</div><div class="card-title">Réseau & Sécurité</div><div class="card-desc">Switches & routeurs Cisco, VLANs, TCP/IP, Wi-Fi professionnel</div></div>
+      <div class="card"><div class="card-icon">🛠️</div><div class="card-title">Outils du métier</div><div class="card-desc">GLPI, NinjaRMM, TeamViewer, AnyDesk, Windows Server Backup</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GESTION DE PARC ══ -->
+<div id="p-parc" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Compétence E5</span>
+    <h2 class="page-title">Gestion de parc informatique</h2>
+    <p class="page-subtitle">Recenser, suivre, maintenir — savoir exactement ce qui tourne dans un SI c'est la base de toute administration efficace.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi c'est indispensable</span>
+    <div class="cards-grid fi">
+      <div class="card"><div class="card-icon">📋</div><div class="card-title">Visibilité totale</div><div class="card-desc">Sans inventaire à jour, impossible de savoir ce qui tourne dans le SI. Une machine non répertoriée c'est une machine non sécurisée, non maintenue, non sauvegardée.</div></div>
+      <div class="card"><div class="card-icon">🔧</div><div class="card-title">Maintenance proactive</div><div class="card-desc">Connaître l'état du parc permet d'anticiper les pannes, de planifier les remplacements et d'intervenir avant qu'un problème n'impacte les utilisateurs.</div></div>
+      <div class="card"><div class="card-icon">💰</div><div class="card-title">Optimisation des coûts</div><div class="card-desc">Un inventaire précis évite les doublons, permet de réaffecter le matériel sous-utilisé et de justifier les investissements auprès de la direction.</div></div>
+      <div class="card"><div class="card-icon">📊</div><div class="card-title">Suivi des licences</div><div class="card-desc">Savoir quels logiciels sont installés et sur combien de postes — essentiel pour rester en conformité légale et éviter les audits de licences surprise.</div></div>
+    </div>
+
+    <hr class="divider">
+    <span class="block-label fi">GLPI — l'outil de référence</span>
+    <div class="glpi-highlight fi">
+      <div class="glpi-left">
+        <div class="glpi-logo">GLPI</div>
+        <p class="glpi-tagline">Gestionnaire Libre de Parc Informatique — logiciel open source français de gestion de parc et de helpdesk, utilisé par des milliers d'organisations dans le monde.</p>
+        <div class="glpi-features">
+          <div class="glpi-feat">Inventaire automatique du matériel et des logiciels</div>
+          <div class="glpi-feat">Gestion des tickets d'incidents et de demandes</div>
+          <div class="glpi-feat">Suivi des contrats et des garanties</div>
+          <div class="glpi-feat">Gestion des utilisateurs et des groupes</div>
+          <div class="glpi-feat">Rapports et tableaux de bord personnalisables</div>
+          <div class="glpi-feat">Plugin GLPI Inventory pour la remontée auto</div>
+        </div>
+      </div>
+      <div class="glpi-right">
+        <div class="glpi-stat"><span class="glpi-stat-val">Open</span><span class="glpi-stat-label">source & gratuit</span></div>
+        <div class="glpi-stat"><span class="glpi-stat-val">FR</span><span class="glpi-stat-label">made in France</span></div>
+        <div class="glpi-stat"><span class="glpi-stat-val">V11</span><span class="glpi-stat-label">version actuelle</span></div>
+        <div class="glpi-stat"><span class="glpi-stat-val">API</span><span class="glpi-stat-label">intégration possible</span></div>
+      </div>
+    </div>
+
+    <span class="block-label fi">Ce qu'on peut faire avec GLPI</span>
+    <div class="num-list fi">
+      <div class="num-item"><div class="num-n">01</div><div class="num-title">Inventaire automatique via GLPI Inventory</div><div class="num-desc">L'agent GLPI Inventory déployé sur les postes remonte automatiquement toutes les infos matériel et logiciel dans GLPI — sans saisie manuelle.</div></div>
+      <div class="num-item"><div class="num-n">02</div><div class="num-title">Gestion des tickets d'incidents</div><div class="num-desc">Les utilisateurs soumettent leurs demandes, les techniciens traitent, suivent et clôturent les tickets. Tout est tracé, rien ne se perd.</div></div>
+      <div class="num-item"><div class="num-n">03</div><div class="num-title">Déploiement via GPO Active Directory</div><div class="num-desc">L'agent GLPI Inventory peut être déployé sur tous les postes du domaine via une GPO — sans intervention manuelle poste par poste.</div></div>
+      <div class="num-item"><div class="num-n">04</div><div class="num-title">Rapports et statistiques</div><div class="num-desc">Tableaux de bord personnalisables, rapports d'inventaire PDF, statistiques sur les incidents — pour avoir une vue d'ensemble du SI à tout moment.</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VEILLE TECHNOLOGIQUE ══ -->
+<div id="p-veille" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Curiosité & veille</span>
+    <h2 class="page-title">Veille technologique</h2>
+    <p class="page-subtitle">Une faille critique peut sortir un vendredi soir. Un outil qu'on utilise tous les jours peut sortir une mise à jour qui change tout. Dans ce métier, rester à jour c'est pas optionnel.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Comment fonctionne une veille efficace</span>
+    <div class="cards-grid fi">
+      <div class="card"><div class="card-icon">📡</div><div class="card-title">Choisir ses sources</div><div class="card-desc">Tout surveiller c'est impossible. Il faut sélectionner des sources fiables, complémentaires, adaptées à son domaine — et les consulter régulièrement.</div></div>
+      <div class="card"><div class="card-icon">🔍</div><div class="card-title">Trier l'information</div><div class="card-desc">Distinguer ce qui est urgent (faille critique) de ce qui est intéressant mais non prioritaire. Ne pas se laisser noyer par le flux.</div></div>
+      <div class="card"><div class="card-icon">🧪</div><div class="card-title">Tester avant d'appliquer</div><div class="card-desc">Pour les changements importants : tester sur une VM d'abord, valider le comportement, puis appliquer en production en toute confiance.</div></div>
+      <div class="card"><div class="card-icon">🔄</div><div class="card-title">Partager & documenter</div><div class="card-desc">Une bonne info ça se partage. Ce qui concerne l'équipe est remonté, ce qui concerne le client est signalé — la veille individuelle devient collective.</div></div>
+    </div>
+
+    <hr class="divider">
+    <span class="block-label fi">Ma veille sur Windows Server — en rapport avec ma situation E6</span>
+    <div style="margin-bottom:1.5rem;" class="fi">
+      <p style="font-size:0.85rem;color:#6B6860;line-height:1.7;margin-bottom:1.5rem;">Dans le cadre de ma situation professionnelle E6 sur la mise en place d'un serveur de fichiers Windows Server 2022 avec Active Directory, GPO et sauvegarde automatique, j'ai suivi les évolutions de Windows Server et des bonnes pratiques associées.</p>
+      <a href="veille_technologique_windows_server.pdf" target="_blank" class="btn btn-primary" style="display:inline-flex;">Voir ma veille technologique complète →</a>
+    </div>
+
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+      <div class="article-card">
+        <div class="article-top-bar system"></div>
+        <div class="article-body">
+          <div class="article-meta">Windows Server · Active Directory</div>
+          <div class="article-title">Windows Server 2025 — Ce qui change dans Active Directory</div>
+          <div class="article-excerpt">Les nouvelles fonctionnalités d'AD DS dans Windows Server 2025 : améliorations des niveaux fonctionnels, nouvelles options de sécurité Kerberos et évolutions de la gestion des GPO.</div>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="article-top-bar security"></div>
+        <div class="article-body">
+          <div class="article-meta">Sécurité · GPO</div>
+          <div class="article-title">Bonnes pratiques GPO 2025 — Ce qu'il ne faut plus faire</div>
+          <div class="article-excerpt">Revue des paramètres GPO obsolètes ou dangereux encore utilisés dans beaucoup d'entreprises, et les configurations recommandées pour 2025 selon les guides CIS Benchmark.</div>
+        </div>
+      </div>
+      <div class="article-card">
+        <div class="article-top-bar network"></div>
+        <div class="article-body">
+          <div class="article-meta">Sauvegarde · Windows Server Backup</div>
+          <div class="article-title">Windows Server Backup vs solutions tierces — Comparatif</div>
+          <div class="article-excerpt">Analyse des limites de Windows Server Backup natif (pas de déduplication, pas de sauvegarde incrémentielle granulaire) et quand il est suffisant vs quand basculer vers Veeam ou autre.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <span class="block-label fi">Mes sources habituelles</span>
+    <div class="cards-grid fi">
+      <div class="card"><div class="card-icon">▶️</div><div class="card-title">YouTube</div><div class="card-desc">Tutoriels pratiques sur Proxmox, pfSense, Windows Server, homelab. Une vidéo vaut souvent mieux qu'une doc pour comprendre rapidement.</div></div>
+      <div class="card"><div class="card-icon">👾</div><div class="card-title">Reddit — r/sysadmin</div><div class="card-desc">Alertes sécurité en temps réel, retours d'expérience de professionnels du monde entier. Quand quelque chose cloche chez Cisco ou Microsoft, Reddit le sait souvent en premier.</div></div>
+      <div class="card"><div class="card-icon">📰</div><div class="card-title">IT-Connect</div><div class="card-desc">La référence francophone pour les admins Windows. Tutoriels précis sur Active Directory, PowerShell et les alertes de sécurité Microsoft.</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ E5 SOUS-PAGES ══ -->
+
+<!-- GÉRER LE PATRIMOINE -->
+<div id="p-e5-patrimoine" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Compétence 1</span>
+    <h2 class="page-title">Gérer le patrimoine informatique</h2>
+    <p class="page-subtitle">Recenser, identifier, sécuriser et assurer la continuité des ressources numériques.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Réalisations associées</span>
+    <div class="num-list fi">
+      <div class="num-item">
+        <div class="num-n">01</div>
+        <div class="num-title" onclick="goReal('r01')">Virtualisation (Proxmox + Hyper-V) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/25 au 06/26 — Déploiement de Proxmox VE et Hyper-V pour héberger les VMs de l'infrastructure client.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">02</div>
+        <div class="num-title" onclick="goReal('r02')">Configuration d'un serveur Windows : AD DS, DNS, DHCP, WSUS, DFS, Hyper-V <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">01/25 au 11/25 — Installation et configuration complète de Windows Server 2022 et 2025 avec AD DS, DNS, DHCP, WSUS, DFS et Hyper-V.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">03</div>
+        <div class="num-title" onclick="goReal('r04')">Configuration réseau (switch Cisco, routeur Cisco, pare-feu pfSense) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">03/25 au 05/26 — Configuration des VLANs et du routage sur switches et routeurs Cisco pour sécuriser le réseau client.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">04</div>
+        <div class="num-title" onclick="goReal('r05')">Supervision <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">02/25 au 06/26 — Mise en place de Zabbix/PRTG avec alertes automatiques pour surveiller les serveurs et équipements réseau.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">05</div>
+        <div class="num-title" onclick="goReal('r09')">Gestion et inventaire du parc informatique <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">09/23 au 01/24 — Recensement, étiquetage et saisie dans GLPI de l'ensemble des équipements du parc client.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">06</div>
+        <div class="num-title" onclick="goReal('r11')">Gestion des comptes utilisateurs - Active Directory <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/23 au 01/24 — Création et gestion des comptes AD avec attribution des droits par service, réinitialisations de mots de passe et déblocages de comptes.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">07</div>
+        <div class="num-title" onclick="goReal('r15')">Sécurisation des accès et gestion des habilitations <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">09/24 au 01/25 — Audit des droits AD, suppression des accès non justifiés et sensibilisation des équipes aux bonnes pratiques de sécurité.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">08</div>
+        <div class="num-title" onclick="goReal('r17')">Administration avancée Active Directory et GPO <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">11/24 au 02/25 — Déploiement de GPO (politique de mot de passe, écran de veille, imprimantes) et nettoyage des comptes inactifs dans l'annuaire AD.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- RÉPONDRE AUX INCIDENTS -->
+<div id="p-e5-incidents" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Compétence 2</span>
+    <h2 class="page-title">Répondre aux incidents et aux demandes d'assistance et d'évolution</h2>
+    <p class="page-subtitle">Collecter, suivre et traiter les demandes concernant les services réseau, système et applicatifs.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Réalisations associées</span>
+    <div class="num-list fi">
+      <div class="num-item">
+        <div class="num-n">01</div>
+        <div class="num-title" onclick="goReal('r08')">Support de poste — Dépannage outils Microsoft Office <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">09/23 au 01/24 — Diagnostic et résolution de pannes sur la suite Office, avec rédaction de guides utilisateurs pour les problèmes récurrents.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">02</div>
+        <div class="num-title" onclick="goReal('r10')">Assistance utilisateurs — Incidents réseau et impression <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">09/23 au 01/24 — Résolution d'incidents réseau et d'impression avec suivi et clôture des tickets dans GLPI.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">03</div>
+        <div class="num-title" onclick="goReal('r14')">Support téléphonique et télémaintenance <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">01/24 au 02/24 — Support à distance via TeamViewer, AnyDesk et NinjaRemote avec rédaction de fiches de procédures.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">04</div>
+        <div class="num-title" onclick="goReal('r04')">Configuration réseau (switch Cisco, routeur Cisco, pare-feu pfSense) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">03/25 au 05/26 — Traitement des demandes d'évolution réseau via configuration Cisco et ajustement des règles pfSense.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">05</div>
+        <div class="num-title" onclick="goReal('r05')">Supervision <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">02/25 au 06/26 — Supervision proactive avec alertes automatiques pour détecter les incidents avant qu'ils n'impactent les utilisateurs.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- PRÉSENCE EN LIGNE -->
+<div id="p-e5-presence" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Compétence 3</span>
+    <h2 class="page-title">Développer la présence en ligne de l'organisation</h2>
+    <p class="page-subtitle">Participer à la valorisation de l'image de l'organisation sur les médias numériques et à l'évolution du site web.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Réalisations associées</span>
+    <div class="num-list fi">
+      <div class="num-item">
+        <div class="num-n">01</div>
+        <div class="num-title" onclick="goReal('r07')">Création du portfolio HTML/CSS/JS (avec IA) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/25 au 04/26 — Conception et développement d'un portfolio professionnel en HTML/CSS/JS hébergé sur GitHub Pages.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- TRAVAILLER EN MODE PROJET -->
+<div id="p-e5-projet" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Compétence 4</span>
+    <h2 class="page-title">Travailler en mode projet</h2>
+    <p class="page-subtitle">Analyser les objectifs, planifier les activités et évaluer les indicateurs de suivi d'un projet.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Réalisations associées</span>
+    <div class="num-list fi">
+      <div class="num-item">
+        <div class="num-n">01</div>
+        <div class="num-title" onclick="goReal('r03')">Rédaction de procédures / Doc technique <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">02/25 au 06/26 — Rédaction de procédures et documentation technique avec planification des livrables et respect des délais.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">02</div>
+        <div class="num-title" onclick="goReal('r07')">Création du portfolio HTML/CSS/JS (avec IA) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/25 au 04/26 — Développement du portfolio mené comme un projet complet : analyse, maquettage, développement itératif et déploiement.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- METTRE À DISPOSITION -->
+<div id="p-e5-service" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Compétence 5</span>
+    <h2 class="page-title">Mettre à disposition des utilisateurs un service informatique</h2>
+    <p class="page-subtitle">Réaliser les tests, déployer un service et accompagner les utilisateurs lors de sa mise en place.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Réalisations associées</span>
+    <div class="num-list fi">
+      <div class="num-item">
+        <div class="num-n">01</div>
+        <div class="num-title" onclick="goReal('r01')">Virtualisation (Proxmox + Hyper-V) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/25 au 06/26 — Déploiement Proxmox et création des VMs, testées puis mises à disposition de l'équipe technique.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">02</div>
+        <div class="num-title" onclick="goReal('r02')">Configuration d'un serveur Windows : AD DS, DNS, DHCP, WSUS, DFS, Hyper-V <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">01/25 au 11/25 — Déploiement complet du serveur Windows Server 2022 avec accompagnement des utilisateurs lors de la prise en main.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">03</div>
+        <div class="num-title" onclick="goReal('r03')">Rédaction de procédures / Doc technique <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">02/25 au 06/26 — Rédaction de guides clairs mis à disposition des utilisateurs pour une prise en main autonome des services.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">04</div>
+        <div class="num-title" onclick="goReal('r04')">Configuration réseau (switch Cisco, routeur Cisco, pare-feu pfSense) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">03/25 au 05/26 — Configuration et tests complets de l'infrastructure réseau avant remise en service au client.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">05</div>
+        <div class="num-title" onclick="goReal('r12')">Installation et configuration de postes de travail <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">11/23 au 01/24 — Déploiement Windows 11, installation des logiciels métier et intégration au domaine AD avec remise aux utilisateurs.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">06</div>
+        <div class="num-title" onclick="goReal('r13')">Configuration de l'infrastructure réseau de la PME <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">12/23 au 01/24 — Câblage, configuration des VLANs et Wi-Fi professionnel avec documentation du plan d'adressage réseau.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">07</div>
+        <div class="num-title" onclick="goReal('r16')">Déploiement et migration de postes Windows 11 <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/24 au 12/24 — Migration Windows 10 vers Windows 11 avec vérification de compatibilité et accompagnement des utilisateurs.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">08</div>
+        <div class="num-title" onclick="goReal('r18')">Remplacement et maintenance préventive du matériel <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">12/24 au 02/25 — Remplacement de RAM, nettoyage physique des postes et mise à jour du firmware des équipements réseau.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- DÉVELOPPEMENT PROFESSIONNEL -->
+<div id="p-e5-developpement" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Compétence 6</span>
+    <h2 class="page-title">Organiser son développement professionnel</h2>
+    <p class="page-subtitle">Mettre en place son environnement d'apprentissage, réaliser une veille informationnelle et gérer son identité professionnelle.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Réalisations associées</span>
+    <div class="num-list fi">
+      <div class="num-item">
+        <div class="num-n">01</div>
+        <div class="num-title" onclick="goReal('r06')">Veille Technologique <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">11/24 au 08/26 — Veille régulière sur Windows Server, Active Directory et la cybersécurité via Reddit, YouTube et IT-Connect.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">02</div>
+        <div class="num-title" onclick="goReal('r03')">Rédaction de procédures / Doc technique <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">02/25 au 06/26 — Rédaction de documentation technique pour structurer et partager les connaissances acquises en formation et en alternance.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">03</div>
+        <div class="num-title" onclick="goReal('r07')">Création du portfolio HTML/CSS/JS (avec IA) <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">10/25 au 04/26 — Développement du portfolio pour valoriser mes réalisations et gérer mon identité professionnelle en ligne.</div>
+      </div>
+      <div class="num-item">
+        <div class="num-n">04</div>
+        <div class="num-title" onclick="goReal('r19')">Veille technologique et développement professionnel <span style="color:#FF4D1C;font-size:0.7rem;">→</span></div>
+        <div class="num-desc">02/25 au 04/25 — Suivi des actualités cybersécurité et mise à jour du CV et du portfolio pour refléter les compétences acquises.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ E6 (VIDE) ══ -->
+<div id="p-e6" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E6 — Administration des systèmes et réseaux</span>
+    <h2 class="page-title">Épreuve E6</h2>
+    <p class="page-subtitle">Situations professionnelles SISR présentées au jury.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Documents communs</span>
+    <div class="fi" style="background:white;border:1px solid #E0DDD6;border-radius:16px;overflow:hidden;margin-bottom:2rem;">
+      <a href="contexte_entreprise.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;border-bottom:1px solid #E0DDD6;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(255,77,28,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">📄</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Contexte de l'entreprise</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Présentation générale — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+      <a href="annexe10_2026.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(168,85,247,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">📋</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Annexe 10-A — Environnement technologique</div>
+          <div style="font-size:0.75rem;color:#6B6860;">BTS SIO SISR — SESSION 2026 — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+    </div>
+
+    <span class="block-label fi">Situation 1 — Mise en place d'un serveur de fichiers et d'un domaine Active Directory</span>
+    <div class="fi" style="background:white;border:1px solid #E0DDD6;border-radius:16px;overflow:hidden;margin-bottom:2rem;">
+      <a href="fiche_e6_situation1.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;border-bottom:1px solid #E0DDD6;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(6,182,212,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">📋</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Annexe VII-1-A — Fiche descriptive de la situation 1</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Mise en place d'un serveur de fichiers et d'un Active Directory — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+      <a href="situation_1_présentation.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;border-bottom:1px solid #E0DDD6;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(34,197,94,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🗂️</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Concevoir une solution d'infrastructure réseau : Serveur de fichiers et Active Directory</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Présentation de la solution — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+      <a href="situation_1_doc_final.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;border-bottom:1px solid #E0DDD6;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(249,115,22,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🖥️</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Installer, tester et déployer une solution d'infrastructure réseau</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Documentation technique intégrale — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+      <a href="situation_1_exploitatin_des_services___mot_de_passe_AD.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(168,85,247,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🔐</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Exploiter, dépanner et superviser une solution d'infrastructure réseau + Mot de passe AD</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Exploitation du serveur de fichiers & identifiants du domaine — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+    </div>
+
+    <span class="block-label fi">Situation 2 — Déploiement et configuration de GLPI Inventory avec inventaire automatique des postes du domaine AD via GPO Active Directory</span>
+    <div class="fi" style="background:white;border:1px solid #E0DDD6;border-radius:16px;overflow:hidden;margin-bottom:2rem;">
+      <a href="fiche_e6_situation2.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;border-bottom:1px solid #E0DDD6;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(6,182,212,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">📋</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Annexe VII-1-A — Fiche descriptive de la situation 2</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Inventaire automatique GLPI Inventory + déploiement agent via GPO — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+      <a href="situation_2_présentation.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;border-bottom:1px solid #E0DDD6;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(34,197,94,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🗂️</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Concevoir une solution d'infrastructure réseau : GLPI Inventory et inventaire automatique</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Présentation de la solution — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+      <a href="situation_2_doc_final.pdf" target="_blank" style="display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;text-decoration:none;color:#1A1A18;transition:background 0.18s;" onmouseover="this.style.background='#F2F0EB'" onmouseout="this.style.background='white'">
+        <div style="width:40px;height:40px;background:rgba(249,115,22,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🖥️</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Installer, tester et déployer une solution d'infrastructure réseau</div>
+          <div style="font-size:0.75rem;color:#6B6860;">Documentation technique intégrale — PDF</div>
+        </div>
+        <div style="margin-left:auto;color:#FF4D1C;font-size:0.8rem;font-weight:600;">Ouvrir →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- RÉALISATION R01 -->
+<div id="p-r01" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
+    <h2 class="page-title">Virtualisation – Proxmox et Hyper-V</h2>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons étudié et pratiqué la virtualisation avec deux hyperviseurs majeurs : Proxmox VE et Hyper-V. J'ai installé, configuré et géré des machines virtuelles sur du matériel réel en salle de TP.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Ce qu'on a appris</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Comprendre le fonctionnement des hyperviseurs de type 1 (bare-metal) et leurs différences avec les solutions Microsoft.</li><li>Installer et configurer Proxmox VE depuis l'ISO, gérer le réseau et le stockage virtualisé.</li><li>Déployer et administrer des VMs sous différents systèmes d'exploitation (Windows Server, Debian, Windows 11).</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Installation de Proxmox VE</div>
+        <div class="card-desc">J'ai installé Proxmox VE depuis l'ISO sur un serveur physique de la salle TP. J'ai accédé à l'interface web (port 8006), configuré le réseau, les stockages (LVM) et créé les réseaux virtuels (vmbr0 pour le bridge principal).</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Création des machines virtuelles</div>
+        <div class="card-desc">J'ai créé plusieurs VMs sous Proxmox avec différents OS : Windows Server 2022, Debian 12 et Windows 11. Pour chaque VM, j'ai défini les ressources adaptées (vCPU, RAM, disque) et configuré les paramètres réseau.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Configuration de Hyper-V</div>
+        <div class="card-desc">J'ai activé le rôle Hyper-V sur Windows Server 2022 via le Gestionnaire de serveur, créé un commutateur virtuel externe pour la communication réseau et déployé des VMs Windows pour comparer les deux approches d'hyperviseur.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Gestion des snapshots</div>
+        <div class="card-desc">J'ai appris à créer des snapshots Proxmox avant chaque manipulation importante, permettant un retour arrière rapide en cas d'erreur. Cette pratique de sauvegarde à chaud est essentielle en production pour limiter les risques.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      La virtualisation est aujourd'hui incontournable dans les infrastructures IT. La formation m'a permis de maîtriser Proxmox et Hyper-V sur du matériel réel, une compétence que j'ai retrouvée directement chez Scalesi où plusieurs clients utilisent ces outils.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R02 -->
+<div id="p-r02" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
+    <h2 class="page-title">Configuration d'un serveur Windows – AD DS, DNS, DHCP, WSUS, DFS, Hyper-V</h2>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons appris à déployer et configurer un Windows Server 2022 complet avec ses principaux rôles : AD DS, DNS, DHCP, WSUS, DFS et Hyper-V, sur un contexte pédagogique simulant une entreprise réelle.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Ce qu'on a appris</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Installer et promouvoir un contrôleur de domaine Active Directory depuis zéro.</li><li>Configurer les rôles DNS, DHCP, WSUS et DFS pour répondre aux besoins d'une infrastructure d'entreprise.</li><li>Appliquer des stratégies de groupe (GPO) et sécuriser les accès aux partages réseau via les droits NTFS.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Installation des rôles</div>
+        <div class="card-desc">Via le Gestionnaire de serveur, j'ai installé les rôles AD DS, DNS, DHCP, WSUS, DFS et Hyper-V. J'ai promu le serveur en contrôleur de domaine, ce qui a automatiquement configuré le DNS intégré à l'Active Directory.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Configuration Active Directory et DNS</div>
+        <div class="card-desc">J'ai structuré l'annuaire en créant des Unités d'Organisation par service, des comptes utilisateurs et des groupes de sécurité. J'ai également configuré les zones DNS de recherche directe et inverse.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Configuration DHCP, WSUS et DFS</div>
+        <div class="card-desc">J'ai configuré une étendue DHCP, mis en place WSUS pour centraliser les mises à jour Windows et créé un espace de noms DFS pour simplifier l'accès aux partages réseau depuis les postes clients.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. GPO et partages NTFS</div>
+        <div class="card-desc">J'ai appliqué des GPO (mappage de lecteurs réseau, blocage des clés USB, politique de mot de passe) et configuré les droits NTFS sur les dossiers partagés avec des groupes en lecture seule et en lecture/écriture.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      La formation m'a permis de pratiquer l'administration Windows Server dans un contexte réaliste. Ces compétences sont aujourd'hui au cœur de mon travail chez Scalesi, où j'interviens régulièrement sur des Active Directory et des GPO pour les clients.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R03 -->
+<div id="p-r03" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
+    <h2 class="page-title">Rédaction de procédures et documentation technique</h2>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons appris à rédiger des documentations techniques claires et structurées pour formaliser chaque réalisation — une compétence essentielle en milieu professionnel.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Ce qu'on a appris</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Structurer une documentation technique : contexte, prérequis, étapes numérotées, captures d'écran annotées, résultats attendus.</li><li>Rédiger une analyse de besoin : expression du besoin, choix technique argumenté, impacts, tests d'acceptation.</li><li>Produire des documents exploitables par n'importe quel technicien, même sans connaître le contexte initial.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Documentation technique pas à pas</div>
+        <div class="card-desc">J'ai appris à rédiger des documentations techniques complètes avec captures d'écran annotées, étapes numérotées, encadrés ⚠ pour les points critiques et ✅ pour valider chaque étape. L'objectif est qu'un autre technicien puisse reproduire la configuration sans aide.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Analyse du besoin</div>
+        <div class="card-desc">En cours, nous avons appris à formaliser une analyse du besoin : identifier le problème, comparer les solutions techniques, évaluer l'impact sur le système existant et définir les critères de validation (tests d'acceptation).</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Mise en forme professionnelle</div>
+        <div class="card-desc">Chaque document respecte une structure professionnelle : en-tête standardisé, pagination, hiérarchie des titres, encadrés colorés selon la criticité. Ces conventions facilitent la lecture et donnent un aspect soigné aux livrables.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Savoir documenter est aussi important que savoir configurer. La formation m'a donné les méthodes pour produire des livrables professionnels clairs. Chez Scalesi, je documente systématiquement chaque intervention pour que le client et l'équipe gardent une trace exploitable.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R04 -->
+<div id="p-r04" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span> <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Configuration réseau – Switch Cisco, Routeur Cisco, Pare-feu pfSense</h2>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons pratiqué la configuration d'équipements réseau Cisco sur du matériel réel en salle de TP — des compétences que j'ai ensuite appliquées chez Scalesi lors d'interventions chez des clients.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Ce qu'on a appris (et appliqué)</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Configurer des VLANs et le routage inter-VLAN en CLI Cisco IOS sur des switches et routeurs physiques en salle de TP.</li><li>Mettre en place pfSense comme pare-feu et routeur : interfaces, règles de filtrage, NAT.</li><li>Appliquer ces compétences en conditions réelles chez Scalesi lors d'interventions réseau chez des clients.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Configuration des switches Cisco (formation + Scalesi)</div>
+        <div class="card-desc">En TP au CFA puis chez les clients Scalesi, j'ai configuré en CLI Cisco : création des VLANs (VLAN 10 Serveurs, VLAN 20 Postes, VLAN 30 Invités), configuration des ports en mode access ou trunk, activation du Spanning Tree Protocol pour éviter les boucles réseau.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Configuration du routeur Cisco (formation + Scalesi)</div>
+        <div class="card-desc">J'ai configuré le routage inter-VLAN (router-on-a-stick) en définissant des sous-interfaces avec une adresse IP de passerelle pour chaque VLAN. Le NAT a été configuré pour permettre l'accès Internet aux postes clients, d'abord en TP puis chez les clients Scalesi.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Mise en place de pfSense (formation)</div>
+        <div class="card-desc">En formation, j'ai installé pfSense sur une VM Proxmox, configuré les interfaces WAN et LAN, puis défini les règles de filtrage : blocage des flux non autorisés, autorisation des services nécessaires (HTTP, HTTPS, DNS). Ces bases ont ensuite été utilisées chez Scalesi.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Tests et validation (Scalesi)</div>
+        <div class="card-desc">Chez Scalesi, après chaque configuration réseau, j'ai vérifié la connectivité entre les VLANs, testé l'accès Internet depuis les postes clients et validé le blocage des flux non autorisés via pfSense avant de remettre l'infrastructure au client.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      La complémentarité entre les TP réseau au CFA et les interventions réelles chez Scalesi m'a permis de maîtriser rapidement la configuration d'équipements professionnels. Aujourd'hui, la configuration de VLANs Cisco et de pfSense fait partie de mon quotidien chez Scalesi.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R05 -->
+<div id="p-r05" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
+    <h2 class="page-title">Supervision du réseau et des serveurs</h2>
+    <p class="page-subtitle">En cours de BTS SIO SISR, nous avons découvert et pratiqué les outils de supervision réseau et serveurs. J'ai installé et configuré Zabbix / PRTG sur les infrastructures de TP pour apprendre à monitorer un SI en temps réel.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Ce qu'on a appris</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Comprendre les principes du monitoring : collecte de métriques via SNMP et ICMP, seuils d'alerte, tableaux de bord.</li><li>Installer et configurer un outil de supervision (Zabbix / PRTG), ajouter des équipements et définir les métriques à surveiller.</li><li>Interpréter les alertes et réagir de façon appropriée selon la criticité de l'anomalie détectée.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Installation de l'outil de supervision</div>
+        <div class="card-desc">J'ai installé Zabbix / PRTG sur une VM dédiée et configuré la découverte automatique des équipements du réseau via SNMP et ICMP. Cette étape m'a permis de comprendre comment un outil de supervision interroge les équipements.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Ajout et paramétrage des équipements</div>
+        <div class="card-desc">J'ai ajouté les serveurs et équipements réseau et défini pour chacun les métriques pertinentes : charge CPU, consommation RAM, espace disque, disponibilité des services. On apprend ainsi à identifier ce qui est réellement utile à surveiller.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Configuration des alertes</div>
+        <div class="card-desc">J'ai défini des seuils d'alerte et configuré les notifications automatiques. En cours, on a simulé des pannes pour tester les alertes et comprendre comment réagir selon la criticité — une mise en situation très proche du réel.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Tableaux de bord</div>
+        <div class="card-desc">J'ai créé des tableaux de bord synthétiques avec des indicateurs colorés (vert/orange/rouge) pour visualiser d'un coup d'œil l'état de l'infrastructure. Ce type de vue est indispensable en production pour une réaction rapide.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      La supervision est une compétence clé que j'ai découverte en cours avant de la retrouver en entreprise. Chez Scalesi, ces notions sont directement appliquées pour surveiller les infrastructures des clients et anticiper les incidents.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R06 -->
+<div id="p-r06" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
+    <h2 class="page-title">Veille technologique</h2>
+    <p class="page-subtitle">Dans le domaine de l'informatique, les technologies évoluent rapidement. Pour rester à jour et anticiper les nouvelles menaces, j'ai mis en place une démarche de veille technologique régulière tout au long de ma formation BTS SIO.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Identifier les sources d'information fiables dans le domaine de l'informatique.</li><li>Suivre les actualités en cybersécurité, systèmes et réseaux.</li><li>Partager les informations pertinentes avec l'équipe et les intégrer dans mes pratiques.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Mise en place des sources de veille</div>
+        <div class="card-desc">J'ai sélectionné des sources fiables et variées : flux RSS (Le Monde Informatique, ZDNet, ANSSI), newsletters, chaînes YouTube techniques et forums professionnels (Reddit sysadmin, Stack Overflow). J'utilise Feedly pour centraliser ces sources.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Thèmes de veille suivis</div>
+        <div class="card-desc">Je concentre ma veille sur trois axes : la cybersécurité (vulnérabilités, ransomwares), les systèmes et réseaux (nouvelles versions Windows Server, évolutions Linux, mises à jour Cisco) et les outils d'administration (GLPI, Proxmox, pfSense).</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Exploitation des informations</div>
+        <div class="card-desc">Les informations collectées sont intégrées dans mes pratiques : mise à jour des procédures, application des correctifs recommandés, et partage avec l'équipe lors des réunions techniques chez Scalesi.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette démarche de veille m'a permis de rester informé des évolutions du secteur et d'adopter rapidement les bonnes pratiques. La veille technologique est désormais un réflexe professionnel que je compte maintenir tout au long de ma carrière.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R07 -->
+<div id="p-r07" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🎓 Formation CFA</span></div>
+    <h2 class="page-title">Création du portfolio HTML / CSS / JS</h2>
+    <p class="page-subtitle">Dans le cadre du BTS SIO, j'ai conçu un portfolio en ligne présentant mes réalisations professionnelles, développé en HTML, CSS et JavaScript avec l'aide d'outils d'intelligence artificielle.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Concevoir et développer un portfolio professionnel en HTML/CSS/JS.</li><li>Présenter toutes les réalisations professionnelles de façon claire et structurée.</li><li>Rendre le portfolio accessible en ligne et sécuriser certaines pages avec un mot de passe.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Conception de la structure</div>
+        <div class="card-desc">J'ai défini l'architecture du portfolio : page d'accueil avec présentation, section E5 (réalisations en entreprise), section E6 (situations professionnelles BTS), et une page par réalisation. J'ai créé une maquette simple avant de commencer le développement.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Développement HTML/CSS/JS</div>
+        <div class="card-desc">J'ai développé les pages en HTML5 sémantique et CSS3, en soignant le design (couleurs, typographie, mise en page responsive). JavaScript a été utilisé pour la navigation dynamique, les animations et la protection des pages E6 par mot de passe.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Intégration du contenu</div>
+        <div class="card-desc">Pour chaque réalisation, j'ai rédigé une fiche structurée (contexte, objectifs, mise en œuvre, conclusion) et intégré les captures d'écran et documentations associées. L'IA m'a aidé à rédiger et reformuler certains contenus.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Mise en ligne</div>
+        <div class="card-desc">Le portfolio est hébergé sur GitHub Pages (bogaczcyprien-svg.github.io), ce qui permet un déploiement gratuit et automatique à chaque mise à jour du dépôt Git.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Le développement de ce portfolio m'a permis de renforcer mes compétences en développement web front-end et de découvrir les outils d'IA comme aide à la rédaction. Il constitue aujourd'hui ma principale vitrine professionnelle.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R08 -->
+<div id="p-r08" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Support de poste – Dépannage outils Microsoft Office</h2>
+    <p class="page-subtitle">Lors de mon stage de première année chez Scalesi, j'ai assuré le support de premier niveau auprès des utilisateurs concernant des problèmes liés à la suite Microsoft Office.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Diagnostiquer et résoudre les pannes sur les applications Microsoft Office.</li><li>Réinstaller et mettre à jour les applications si nécessaire.</li><li>Créer des guides utilisateurs pour les problèmes les plus récurrents.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Prise en charge des demandes</div>
+        <div class="card-desc">Les demandes arrivaient via le système de tickets GLPI. Je prenais en charge chaque ticket en contactant l'utilisateur pour recueillir les informations sur le problème : message d'erreur, fréquence, actions effectuées avant la panne.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Diagnostic et résolution</div>
+        <div class="card-desc">J'ai résolu des problèmes variés : réparation d'Office via le panneau de configuration, suppression du profil Outlook corrompu, déblocage de fichiers Excel en lecture seule, ou désactivation de compléments causant des plantages.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Rédaction de guides utilisateurs</div>
+        <div class="card-desc">Pour les problèmes récurrents (Outlook qui ne se lance plus, Excel qui plante), j'ai rédigé des fiches de procédure simples destinées aux utilisateurs, leur permettant de résoudre eux-mêmes les problèmes courants.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette expérience de support m'a appris à communiquer clairement avec des utilisateurs non-techniques et à trouver rapidement des solutions efficaces sous contrainte de temps. La rédaction de guides a également réduit le nombre de tickets récurrents.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R09 -->
+<div id="p-r09" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Gestion et inventaire du parc informatique</h2>
+    <p class="page-subtitle">Lors de mon stage de première année chez Scalesi, un client ne disposait d'aucun inventaire structuré de son parc informatique. Il m'a été confié de réaliser un inventaire complet du parc.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Recenser l'ensemble des équipements informatiques du client (PC, imprimantes, périphériques).</li><li>Étiqueter et numéroter les équipements de manière cohérente.</li><li>Saisir les informations dans un outil de gestion de parc.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Recensement physique</div>
+        <div class="card-desc">J'ai parcouru les locaux du client pour identifier et lister tous les équipements : postes de travail, laptops, imprimantes, écrans, switches et périphériques divers. Pour chaque équipement, j'ai noté le modèle, le numéro de série, l'emplacement et l'état général.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Étiquetage des équipements</div>
+        <div class="card-desc">J'ai créé un système d'étiquetage avec des codes uniques (ex : PC-001, IMP-003) et apposé les étiquettes sur chaque équipement. Ce système permet une identification rapide lors des interventions.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Saisie dans GLPI</div>
+        <div class="card-desc">Toutes les informations collectées ont été saisies dans GLPI. Chaque équipement dispose désormais d'une fiche détaillée avec ses caractéristiques, sa localisation et son historique d'interventions.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cet inventaire a permis au client d'avoir une vision claire de son parc informatique et à Scalesi de mieux planifier les interventions de maintenance. J'ai compris l'importance d'un inventaire à jour pour une gestion efficace du parc.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R10 -->
+<div id="p-r10" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Assistance utilisateurs – Incidents réseau et impression</h2>
+    <p class="page-subtitle">Durant mon stage de première année chez Scalesi, j'ai traité de nombreux tickets d'assistance liés à des problèmes de connexion réseau et d'impression, nécessitant un diagnostic méthodique.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Diagnostiquer et résoudre les problèmes de connexion réseau (Wi-Fi et câble).</li><li>Configurer et dépanner les imprimantes réseau.</li><li>Assurer le suivi et la clôture des tickets dans GLPI.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Diagnostic réseau</div>
+        <div class="card-desc">Face à un problème de connexion, j'appliquais une méthodologie en couches : vérification physique (câble, voyants), ping de la passerelle, vérification du bail DHCP, test DNS. Cette approche m'a permis d'identifier rapidement la source du problème.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Résolution des incidents réseau</div>
+        <div class="card-desc">Les solutions appliquées variaient selon la cause : renouvellement du bail DHCP (ipconfig /release /renew), reconfiguration de l'adaptateur réseau, remplacement d'un câble défectueux ou redémarrage d'un port de switch en erreur.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Dépannage des imprimantes réseau</div>
+        <div class="card-desc">Pour les imprimantes réseau, j'ai résolu des problèmes de file d'attente bloquée (suppression manuelle du spouleur), de pilote incorrect et de configuration IP (réattribution d'une IP fixe hors du pool DHCP).</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Suivi dans GLPI</div>
+        <div class="card-desc">Chaque intervention était documentée dans GLPI : description du problème, actions effectuées et solution appliquée. Les tickets étaient clôturés après validation de l'utilisateur.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Le traitement de ces incidents m'a permis de développer une méthode de diagnostic efficace et de gagner en autonomie sur les problèmes réseau courants. La gestion des tickets dans GLPI m'a également sensibilisé à l'importance de la traçabilité des interventions.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R11 -->
+<div id="p-r11" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Gestion des comptes utilisateurs – Active Directory</h2>
+    <p class="page-subtitle">Chez Scalesi, la gestion des comptes utilisateurs Active Directory est une tâche quotidienne. J'ai pris en charge la création, modification et suppression de comptes AD pour les clients.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Créer, modifier et supprimer des comptes utilisateurs dans l'Active Directory.</li><li>Attribuer les droits d'accès aux dossiers partagés selon le profil de l'utilisateur.</li><li>Réinitialiser les mots de passe et débloquer les comptes verrouillés.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Création et modification de comptes</div>
+        <div class="card-desc">Via la console Active Directory Users and Computers (ADUC), j'ai créé des comptes utilisateurs en respectant la convention de nommage du client (prénom.nom), les ai placés dans l'OU correspondant à leur service et leur ai attribué les groupes de sécurité appropriés.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Gestion des droits d'accès</div>
+        <div class="card-desc">Pour chaque nouveau compte, j'ai configuré les droits d'accès aux dossiers partagés via les groupes AD. L'appartenance à un groupe (ex : GRP_Commercial_RW) déterminait automatiquement les accès aux ressources réseau.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Réinitialisation et déblocage</div>
+        <div class="card-desc">Pour les demandes de réinitialisation de mot de passe ou de déblocage de compte, j'intervenais rapidement depuis ADUC, en m'assurant de forcer le changement de mot de passe à la prochaine connexion pour des raisons de sécurité.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      La gestion des comptes AD est une compétence fondamentale en administration système. Cette expérience m'a permis de maîtriser les bases d'Active Directory et de comprendre l'importance d'une gestion rigoureuse des droits d'accès pour la sécurité du SI.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R12 -->
+<div id="p-r12" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Installation et configuration de postes de travail</h2>
+    <p class="page-subtitle">Scalesi est régulièrement sollicité par ses clients pour le déploiement de nouveaux postes de travail. Lors de mon stage de première année, j'ai participé à plusieurs déploiements de postes Windows 11.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Déployer Windows 11 depuis une ISO sur des postes neufs ou recyclés.</li><li>Installer et configurer les logiciels métier requis par le client.</li><li>Intégrer les postes au domaine Active Directory.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Installation de Windows 11</div>
+        <div class="card-desc">J'ai préparé les clés USB bootables avec l'outil Microsoft Media Creation Tool, puis procédé à l'installation de Windows 11 sur chaque poste. Les paramètres régionaux, le compte local initial et les options de confidentialité ont été configurés de manière standard.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Installation des logiciels métier</div>
+        <div class="card-desc">Selon la fiche de poste du futur utilisateur, j'ai installé les logiciels nécessaires : suite Office, antivirus, outils métier spécifiques au client. J'ai également appliqué les mises à jour Windows et logiciels avant la livraison.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Intégration au domaine</div>
+        <div class="card-desc">Chaque poste a été joint au domaine Active Directory du client. Après la jonction, j'ai vérifié l'apparition du compte machine dans l'OU Ordinateurs de l'AD et testé la connexion avec un compte utilisateur du domaine.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Le déploiement de postes de travail est une activité concrète et récurrente chez Scalesi. Cette expérience m'a permis de maîtriser le processus complet de mise en service d'un poste, de l'installation du système jusqu'à l'intégration en domaine.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R13 -->
+<div id="p-r13" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Configuration de l'infrastructure réseau d'une PME</h2>
+    <p class="page-subtitle">Lors de mon stage de première année chez Scalesi, j'ai participé à la mise en place de l'infrastructure réseau d'une PME cliente : câblage, VLANs, Wi-Fi professionnel et documentation du plan d'adressage.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Câbler et configurer un switch administrable avec des VLANs.</li><li>Mettre en place le Wi-Fi professionnel (point d'accès, SSID dédiés).</li><li>Documenter le plan d'adressage réseau de la PME.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Câblage et configuration du switch</div>
+        <div class="card-desc">J'ai réalisé le câblage structuré des prises réseau vers le patch panel et le switch. En CLI Cisco, j'ai créé les VLANs (VLAN 10 Serveurs, VLAN 20 Employés, VLAN 30 Invités), configuré les ports en mode access et les ports montants en mode trunk.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Mise en place du Wi-Fi professionnel</div>
+        <div class="card-desc">J'ai configuré les points d'accès Wi-Fi avec deux SSID distincts : un SSID sécurisé (WPA2 Enterprise) pour les employés, mappé sur le VLAN 20, et un SSID invité isolé sur le VLAN 30 avec accès Internet uniquement.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Documentation du plan d'adressage</div>
+        <div class="card-desc">J'ai rédigé un document de plan d'adressage réseau recensant : les plages IP de chaque VLAN, les adresses IP fixes des équipements et les informations de configuration des équipements réseau.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette intervention m'a permis d'appliquer concrètement les notions de réseau apprises en formation. La mise en place des VLANs et du Wi-Fi professionnel m'a donné une expérience précieuse sur des équipements réels en environnement de production.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R14 -->
+<div id="p-r14" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Support téléphonique et télémaintenance</h2>
+    <p class="page-subtitle">Chez Scalesi, une partie du support aux clients se fait à distance. Lors de mon stage de première année, j'ai assuré des sessions d'assistance à distance via TeamViewer, AnyDesk et NinjaRemote.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Assister les utilisateurs à distance via TeamViewer, AnyDesk et NinjaRemote.</li><li>Diagnostiquer et résoudre des incidents à distance.</li><li>Rédiger des fiches de procédures pour les utilisateurs.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Prise en main à distance</div>
+        <div class="card-desc">Après avoir obtenu l'accord de l'utilisateur, je me connectais à son poste via l'outil de télémaintenance adapté. NinjaRemote était privilégié pour les clients disposant de l'agent Ninja installé, permettant une connexion sans intervention de l'utilisateur.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Diagnostic et résolution à distance</div>
+        <div class="card-desc">Depuis la session à distance, je diagnostiquais le problème en ayant accès complet au poste. Les interventions comprenaient : corrections de configuration logicielle, réinstallation d'applications, mise à jour de pilotes et résolution de problèmes réseau.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Rédaction de fiches de procédures</div>
+        <div class="card-desc">Pour les problèmes susceptibles de se reproduire, j'ai rédigé des fiches simples expliquant à l'utilisateur comment réagir en premier lieu, réduisant ainsi le nombre d'appels pour les cas les plus courants.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Le support à distance m'a appris à diagnostiquer efficacement sans voir physiquement le matériel, et à communiquer clairement avec des utilisateurs parfois stressés. C'est une compétence essentielle dans le métier de technicien informatique.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R15 -->
+<div id="p-r15" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Sécurisation des accès et gestion des habilitations</h2>
+    <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, un audit de sécurité préliminaire chez un client a révélé des problèmes d'habilitations. Il m'a été confié de remédier à ces problèmes.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Réviser et mettre à jour les droits d'accès utilisateurs selon le principe du moindre privilège.</li><li>Mettre en place une politique de mot de passe fort via GPO.</li><li>Sensibiliser les utilisateurs aux bonnes pratiques de sécurité.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Audit des droits d'accès</div>
+        <div class="card-desc">J'ai analysé les appartenances aux groupes AD et les droits NTFS sur les dossiers partagés. J'ai identifié les utilisateurs ayant des accès non justifiés et les ai retirés des groupes correspondants, en accord avec les responsables de service.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Désactivation des comptes inactifs</div>
+        <div class="card-desc">Via un script PowerShell, j'ai listé les comptes AD sans connexion depuis plus de 90 jours. Après validation par le responsable, ces comptes ont été désactivés et déplacés dans une OU dédiée aux comptes inactifs.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Politique de mot de passe GPO</div>
+        <div class="card-desc">J'ai configuré une GPO de politique de mot de passe : 12 caractères minimum, complexité activée (majuscules, chiffres, caractères spéciaux), historique de 5 mots de passe et expiration à 365 jours.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Sensibilisation des utilisateurs</div>
+        <div class="card-desc">J'ai animé une courte session de sensibilisation auprès des employés sur les bonnes pratiques : ne pas partager ses identifiants, reconnaître un e-mail de phishing et signaler les comportements suspects.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette mission m'a sensibilisé à l'importance de la sécurité dans la gestion d'un système d'information. L'application du principe du moindre privilège et la politique de mot de passe robuste ont significativement amélioré la posture de sécurité du client.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R16 -->
+<div id="p-r16" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Déploiement et migration de postes Windows 11</h2>
+    <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, un client utilisait encore des postes sous Windows 10 dont le support allait prendre fin. J'ai participé à la migration complète du parc vers Windows 11.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Vérifier la compatibilité matérielle des postes avec Windows 11.</li><li>Réaliser la migration de Windows 10 vers Windows 11.</li><li>Accompagner les utilisateurs lors de la prise en main du nouveau système.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Vérification de la compatibilité</div>
+        <div class="card-desc">J'ai utilisé l'outil PC Health Check de Microsoft pour vérifier la compatibilité de chaque poste avec Windows 11 (TPM 2.0, Secure Boot, processeur compatible). Les postes non compatibles ont été signalés pour remplacement matériel.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Migration des postes compatibles</div>
+        <div class="card-desc">Pour les postes compatibles, j'ai réalisé la mise à niveau via Windows Update ou l'assistant de mise à niveau Microsoft. Avant chaque migration, une sauvegarde des données utilisateur était effectuée.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Accompagnement des utilisateurs</div>
+        <div class="card-desc">Windows 11 apporte des changements d'interface qui perturbent certains utilisateurs. J'ai réalisé de courtes démonstrations individuelles et rédigé un guide de prise en main rapide pour faciliter la transition.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette migration m'a permis d'acquérir de l'expérience dans la gestion d'un projet de déploiement à grande échelle. L'aspect accompagnement au changement m'a également montré que la dimension humaine est tout aussi importante que la dimension technique.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R17 -->
+<div id="p-r17" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Administration avancée Active Directory et GPO</h2>
+    <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, j'ai approfondi mes compétences en administration Active Directory en configurant de nouvelles GPO et en réalisant un audit des comptes AD.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Configurer de nouvelles GPO (politique de mot de passe, écran de veille sécurisé).</li><li>Auditer les comptes AD inactifs et nettoyer l'annuaire.</li><li>Documenter les GPO en place pour faciliter la maintenance future.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Configuration des nouvelles GPO</div>
+        <div class="card-desc">J'ai créé deux nouvelles GPO via la console Group Policy Management : une GPO de politique de mot de passe (12 caractères minimum, complexité activée) et une GPO d'écran de veille sécurisé (activation après 10 minutes d'inactivité avec verrouillage de session).</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Audit des comptes inactifs</div>
+        <div class="card-desc">J'ai généré un rapport des comptes sans connexion depuis plus de 90 jours. Le rapport a été soumis au responsable IT du client pour validation avant toute action.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Nettoyage de l'annuaire</div>
+        <div class="card-desc">Après validation, j'ai désactivé les comptes inactifs identifiés et les ai déplacés dans une OU dédiée. Les comptes des prestataires dont les missions étaient terminées ont été supprimés définitivement.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">4. Documentation</div>
+        <div class="card-desc">J'ai rédigé un document récapitulatif de toutes les GPO actives sur le domaine : nom, OU cible, description des paramètres appliqués et justification. Ce document sert de référence pour les futurs techniciens.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette mission m'a permis d'approfondir ma maîtrise d'Active Directory et des GPO, outils incontournables en administration Windows. L'audit des comptes et le nettoyage de l'annuaire sont des tâches essentielles pour maintenir la sécurité et la performance du domaine.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R18 -->
+<div id="p-r18" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Remplacement et maintenance préventive du matériel</h2>
+    <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, j'ai réalisé des opérations de maintenance préventive sur le parc informatique d'un client : remplacement de RAM, nettoyage physique et mise à jour du firmware.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Remplacer les modules RAM défaillants ou insuffisants sur les postes.</li><li>Réaliser le nettoyage physique et la vérification des postes.</li><li>Mettre à jour le firmware des équipements réseau.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Diagnostic et remplacement de RAM</div>
+        <div class="card-desc">Suite à des signalements de lenteurs et de plantages, j'ai utilisé l'outil de diagnostic mémoire Windows (mdsched.exe) pour identifier les modules RAM défaillants. Les barrettes défectueuses ont été remplacées par des modules compatibles.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Nettoyage physique des postes</div>
+        <div class="card-desc">J'ai procédé au nettoyage physique des postes : dépoussiérage des ventilateurs et radiateurs à l'air comprimé, vérification des connexions internes et inspection de l'état général des composants.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Mise à jour du firmware réseau</div>
+        <div class="card-desc">Pour les switches Cisco et les points d'accès Wi-Fi, j'ai téléchargé les dernières versions de firmware sur les sites constructeurs et procédé aux mises à jour depuis les interfaces d'administration.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      La maintenance préventive est souvent négligée mais essentielle pour garantir la longévité et la fiabilité du parc informatique. Ces interventions m'ont permis d'acquérir des compétences pratiques en matériel informatique.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div><!-- RÉALISATION R19 -->
+<div id="p-r19" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Épreuve E5 — Réalisation professionnelle</span>
+    <div class="fi" style="margin-top:0.5rem;"><span style="display:inline-flex;align-items:center;gap:0.4rem;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:0.3rem 0.8rem;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">🏢 Scalesi</span></div>
+    <h2 class="page-title">Veille technologique et développement professionnel en entreprise</h2>
+    <p class="page-subtitle">Lors de mon stage de deuxième année chez Scalesi, j'ai poursuivi ma démarche de veille technologique et travaillé à mon développement professionnel en mettant à jour mon portfolio et mon CV.</p>
+  </div>
+  <div class="section-wrap">
+    <span class="block-label fi">Pourquoi cette activité ?</span>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li>Réaliser une veille régulière sur les menaces de cybersécurité.</li><li>Mettre à jour le portfolio professionnel et le CV.</li><li>Partager les informations de veille pertinentes avec l'équipe.</li>
+    </ul>
+    <span class="block-label fi">Mise en œuvre</span>
+    <div class="cards-grid fi" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:2rem;">
+      
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">1. Veille cybersécurité</div>
+        <div class="card-desc">J'ai suivi les bulletins de sécurité de l'ANSSI et les alertes CVE pour rester informé des nouvelles vulnérabilités affectant les technologies utilisées chez Scalesi. Deux alertes critiques ont été remontées à l'équipe et ont conduit à des mises à jour urgentes chez des clients.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">2. Mise à jour du portfolio</div>
+        <div class="card-desc">J'ai intégré les nouvelles réalisations de stage dans le portfolio en ligne, en rédigeant les fiches correspondantes selon la structure établie. Le design a également été amélioré pour être plus professionnel.</div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div class="card-title">3. Mise à jour du CV</div>
+        <div class="card-desc">Mon CV a été mis à jour pour refléter les nouvelles compétences acquises : administration Active Directory avancée, configuration réseau Cisco, supervision, maintenance matérielle.</div>
+      </div>
+    </div>
+    <span class="block-label fi">Conclusion</span>
+    <div class="fi" style="padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;font-size:0.88rem;color:#6B6860;line-height:1.7;border-left:3px solid #A855F7;">
+      Cette démarche de veille et de développement professionnel m'a permis de rester à jour sur les évolutions du secteur et de valoriser mes compétences acquises en stage. Le portfolio et le CV sont désormais des outils professionnels prêts pour ma recherche d'emploi après le BTS SIO.
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div></div><!-- /#main -->
+
+<!-- ══ VEILLE DETAIL ══ -->
+<div id="p-veille-detail" class="page">
+  <div class="page-intro fi">
+    <span class="page-label">Veille technologique — Windows Server & Active Directory</span>
+    <h2 class="page-title">Windows Server<br>& Active Directory</h2>
+    <p class="page-subtitle">Cette veille porte sur les évolutions de Windows Server et Active Directory, en lien direct avec ma situation E6 (déploiement d'un serveur de fichiers avec AD, GPO et sauvegarde chez TechnoShop via Scalesi).</p>
+  </div>
+  <div class="section-wrap">
+
+    <!-- 01 Windows Server 2025 -->
+    <span class="block-label fi">01 — WINDOWS SERVER 2025</span>
+    <h3 class="fi" style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.75rem;">Nouveautés par rapport à Windows Server 2022</h3>
+    <p class="fi" style="font-size:0.88rem;color:#6B6860;line-height:1.75;margin-bottom:1rem;">Windows Server 2025 est sorti en octobre 2024. Il apporte des améliorations importantes en sécurité et en administration Active Directory :</p>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.25rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #FF4D1C;">
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>Kerberos armoring (FAST)</strong> activé par défaut — renforce l'authentification des utilisateurs AD <span style="color:#6B6860;font-style:italic;">(Kerberos est le protocole d'authentification réseau utilisé dans les domaines Windows)</span></li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>SMB over QUIC</strong> — permet l'accès aux partages réseau sans VPN via internet, avec chiffrement intégré <span style="color:#6B6860;font-style:italic;">(SMB = Server Message Block, le protocole des partages Windows)</span></li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>TLS 1.3</strong> activé par défaut — TLS (Transport Layer Security) est le protocole de chiffrement des communications ; la version 1.3 est la plus sécurisée</li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>NTLM désactivable via GPO native</strong> — NTLM est un ancien protocole d'authentification Windows vulnérable aux attaques par relais ; WS2025 facilite sa désactivation</li>
+    </ul>
+    <div class="fi" style="padding:1.25rem 1.5rem;background:rgba(255,77,28,0.05);border-radius:12px;border-left:3px solid #FF4D1C;margin-bottom:2rem;">
+      <p style="font-size:0.83rem;color:#6B6860;line-height:1.65;">Pour mes missions chez Scalesi, ces évolutions signifient que les migrations futures vers WS2025 apporteront un gain de sécurité significatif sans configuration supplémentaire.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 02 Active Directory & GPO -->
+    <span class="block-label fi">02 — ACTIVE DIRECTORY & GPO</span>
+    <h3 class="fi" style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.75rem;">Bonnes pratiques et erreurs à éviter</h3>
+    <div class="fi" style="padding:1.25rem 1.5rem;background:rgba(168,85,247,0.06);border-radius:12px;border-left:3px solid #A855F7;margin-bottom:1.25rem;">
+      <p style="font-size:0.83rem;color:#6B6860;line-height:1.65;"><strong style="color:#1A1A18;">Active Directory (AD)</strong> est l'annuaire centralisé de Windows qui gère les utilisateurs, les ordinateurs et les droits d'accès dans un domaine. Les <strong style="color:#1A1A18;">GPO (Group Policy Objects)</strong> sont des règles appliquées automatiquement aux machines et utilisateurs du domaine (politique de mot de passe, blocage USB, mappage de lecteurs...).</p>
+    </div>
+    <ul class="fi" style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #A855F7;">
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>Comptes inactifs</strong> : les comptes AD sans connexion depuis +90 jours doivent être désactivés — un compte inutilisé est une porte d'entrée potentielle pour un attaquant</li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>Principe du moindre privilège</strong> : ne jamais donner plus de droits que nécessaire — éviter de mettre tous les admins dans le groupe "Domain Admins"</li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>Politique de mot de passe</strong> : minimum 12 caractères (recommandation NIST 2024), complexité activée, historique des 10 derniers mots de passe — j'ai appliqué cela dans ma situation E6</li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>GPO blocage USB</strong> : désactiver les ports USB en écriture pour éviter les fuites de données et les infections par clé malveillante — déployé chez plusieurs clients Scalesi</li>
+      <li style="font-size:0.85rem;color:#1A1A18;line-height:1.65;"><strong>GPO verrouillage écran</strong> : verrouillage automatique après 10 minutes d'inactivité avec mot de passe — pratique simple mais souvent oubliée</li>
+    </ul>
+
+    <hr class="divider">
+
+    <!-- 03 Sauvegarde -->
+    <span class="block-label fi">03 — SAUVEGARDE WINDOWS SERVER</span>
+    <h3 class="fi" style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.75rem;">Windows Server Backup — Forces et limites</h3>
+    <div class="fi" style="padding:1.25rem 1.5rem;background:rgba(6,182,212,0.06);border-radius:12px;border-left:3px solid #06B6D4;margin-bottom:1.25rem;">
+      <p style="font-size:0.83rem;color:#6B6860;line-height:1.65;"><strong style="color:#1A1A18;">Windows Server Backup (WSB)</strong> est la solution de sauvegarde native intégrée à Windows Server, gratuite et sans licence supplémentaire. C'est l'outil que j'ai utilisé dans ma situation E6 pour la sauvegarde automatique quotidienne à 02h00 du serveur de fichiers TechnoShop.</p>
+    </div>
+    <div class="fi" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;" class="wsb-grid">
+      <div style="background:white;border:1px solid #E0DDD6;border-radius:14px;padding:1.5rem;border-top:3px solid #10B981;">
+        <div style="font-weight:700;font-size:0.85rem;color:#10B981;margin-bottom:0.75rem;">✓ Points forts</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+          <li style="font-size:0.8rem;color:#6B6860;">Gratuit, inclus dans Windows Server</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Simple à configurer (GUI ou PowerShell)</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Sauvegarde du System State (AD compris)</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Planification automatique quotidienne</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Compatible VSS pour cohérence des données</li>
+        </ul>
+      </div>
+      <div style="background:white;border:1px solid #E0DDD6;border-radius:14px;padding:1.5rem;border-top:3px solid #F59E0B;">
+        <div style="font-weight:700;font-size:0.85rem;color:#F59E0B;margin-bottom:0.75rem;">⚠ Limites à connaître</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+          <li style="font-size:0.8rem;color:#6B6860;">Pas de sauvegarde incrémentielle fichier</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Pas d'alerte email native en cas d'échec</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Pas de console centralisée multi-serveurs</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Occupe plus d'espace (pas de déduplication)</li>
+          <li style="font-size:0.8rem;color:#6B6860;">Recommandé pour 1-3 serveurs maximum</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fi" style="font-size:0.83rem;color:#6B6860;line-height:1.65;margin-bottom:2rem;">Pour des besoins plus avancés (plusieurs serveurs, RPO inférieur à 4h, restauration granulaire d'objets AD), des solutions tierces comme <strong>Veeam Backup & Replication</strong> sont recommandées.</p>
+
+    <hr class="divider">
+
+    <!-- 04 Sécurité & CVE -->
+    <span class="block-label fi">04 — SÉCURITÉ & CVE</span>
+    <h3 class="fi" style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.75rem;">Vulnérabilités récentes et correctifs à appliquer</h3>
+    <div class="fi" style="padding:1.25rem 1.5rem;background:rgba(239,68,68,0.06);border-radius:12px;border-left:3px solid #EF4444;margin-bottom:1.25rem;">
+      <p style="font-size:0.83rem;color:#6B6860;line-height:1.65;">Une <strong style="color:#1A1A18;">CVE (Common Vulnerabilities and Exposures)</strong> est un identifiant unique attribué à une faille de sécurité découverte dans un logiciel. Chaque CVE reçoit un score <strong style="color:#1A1A18;">CVSS</strong> de 0 à 10 indiquant sa criticité : 7-8.9 = Élevé, 9-10 = Critique. Le suivi des CVE permet d'appliquer les correctifs prioritaires avant qu'un attaquant ne les exploite.</p>
+    </div>
+    <div class="fi" style="background:white;border:1px solid #E0DDD6;border-radius:14px;overflow-x:auto;margin-bottom:1.25rem;">
+      <div style="min-width:600px;">
+      <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 2fr 1.2fr;background:#1A1A18;color:white;padding:0.75rem 1rem;font-size:0.75rem;font-weight:700;">
+        <div>CVE</div><div>Composant</div><div>Score</div><div>Type d'attaque</div><div>Correctif</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 2fr 1.2fr;padding:0.75rem 1rem;font-size:0.78rem;border-bottom:1px solid #E0DDD6;background:#FAFAF7;">
+        <div style="font-family:monospace;font-weight:600;">CVE-2024-38077</div><div style="color:#6B6860;">Remote Desktop Services</div><div style="color:#EF4444;font-weight:700;">9.8 Critique</div><div style="color:#6B6860;">RCE — exécution de code à distance</div><div style="color:#6B6860;">Août 2024</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 2fr 1.2fr;padding:0.75rem 1rem;font-size:0.78rem;border-bottom:1px solid #E0DDD6;">
+        <div style="font-family:monospace;font-weight:600;">CVE-2024-21412</div><div style="color:#6B6860;">SmartScreen</div><div style="color:#F59E0B;font-weight:700;">8.1 Élevé</div><div style="color:#6B6860;">Bypass — contournement des protections</div><div style="color:#6B6860;">Fév. 2024</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 2fr 1.2fr;padding:0.75rem 1rem;font-size:0.78rem;background:#FAFAF7;">
+        <div style="font-family:monospace;font-weight:600;">CVE-2023-23397</div><div style="color:#6B6860;">Outlook / NTLM</div><div style="color:#EF4444;font-weight:700;">9.8 Critique</div><div style="color:#6B6860;">Relay NTLM — vol de hash de mot de passe</div><div style="color:#6B6860;">Mars 2023</div>
+      </div>
+      </div>
+    </div>
+    <div class="fi" style="padding:1.25rem 1.5rem;background:rgba(255,77,28,0.05);border-radius:12px;border-left:3px solid #FF4D1C;margin-bottom:2rem;">
+      <p style="font-size:0.83rem;color:#6B6860;line-height:1.65;">Action : appliquer les <strong style="color:#1A1A18;">Patch Tuesday</strong> (mises à jour mensuelles de Microsoft) via WSUS chaque mois. Ne pas laisser un serveur sans mise à jour depuis plus de 3 mois. Désactiver <strong style="color:#1A1A18;">NTLMv1</strong> via GPO et activer le <strong style="color:#1A1A18;">SMB Signing</strong> pour se protéger des attaques par relais.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 05 Ce que j'ai appliqué -->
+    <span class="block-label fi">05 — CE QUE J'AI APPLIQUÉ</span>
+    <h3 class="fi" style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.75rem;">De la veille à la pratique</h3>
+    <div class="fi" style="display:flex;flex-direction:column;gap:0.6rem;padding:1.5rem;background:white;border:1px solid #E0DDD6;border-radius:16px;border-left:3px solid #A855F7;margin-bottom:2rem;">
+      <div style="font-size:0.85rem;color:#1A1A18;line-height:1.65;display:flex;align-items:start;gap:0.75rem;"><span style="color:#FF4D1C;font-weight:700;flex-shrink:0;">→</span>Politique de mot de passe à <strong>12 caractères minimum</strong> configurée dans ma situation E6 (au lieu de 8)</div>
+      <div style="font-size:0.85rem;color:#1A1A18;line-height:1.65;display:flex;align-items:start;gap:0.75rem;"><span style="color:#FF4D1C;font-weight:700;flex-shrink:0;">→</span><strong>GPO blocage USB</strong> déployée chez des clients Scalesi pour limiter les risques d'infection</div>
+      <div style="font-size:0.85rem;color:#1A1A18;line-height:1.65;display:flex;align-items:start;gap:0.75rem;"><span style="color:#FF4D1C;font-weight:700;flex-shrink:0;">→</span>Script PowerShell d'<strong>audit des comptes AD inactifs</strong> proposé à l'équipe technique</div>
+      <div style="font-size:0.85rem;color:#1A1A18;line-height:1.65;display:flex;align-items:start;gap:0.75rem;"><span style="color:#FF4D1C;font-weight:700;flex-shrink:0;">→</span>Vérification du <strong>SMB Signing</strong> activé sur les serveurs de fichiers déployés</div>
+      <div style="font-size:0.85rem;color:#1A1A18;line-height:1.65;display:flex;align-items:start;gap:0.75rem;"><span style="color:#FF4D1C;font-weight:700;flex-shrink:0;">→</span>Application systématique des mises à jour via <strong>WSUS</strong> avant mise en production</div>
+    </div>
+
+    <div class="fi" style="text-align:center;">
+      <button onclick="go('veille')" class="btn btn-ghost">← Retour à la veille technologique</button>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="contact-section fi">
+      <div class="contact-left">
+        <h3>Une question ? Un message ?</h3>
+        <p>N'hésitez pas à me contacter pour toute question ou remarque.</p>
+        <div class="contact-social">
+          <a href="#" class="social-btn">📸 Instagram</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendContact(event)">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Votre nom" required>
+          <input type="email" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea class="form-input" placeholder="Votre message..."></textarea>
+        <button type="submit" class="form-submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="logo">
+    <div class="logo-name">Cyprien Bogacz</div>
+    <div class="logo-sub">BTS SIO SISR · 2026</div>
+  </div>
+  <nav>
+    <div class="nav-section">Navigation</div>
+    <a onclick="go('accueil')" id="n-accueil" class="active"><span class="nav-icon">🏠</span>Accueil</a>
+    <a onclick="go('bts')" id="n-bts"><span class="nav-icon">🎓</span>BTS SIO</a>
+    <a onclick="go('alt')" id="n-alt"><span class="nav-icon">🏢</span>Mon alternance</a>
+    <a onclick="go('parc')" id="n-parc"><span class="nav-icon">💻</span>Gestion de parc</a>
+    <a onclick="go('veille')" id="n-veille"><span class="nav-icon">📡</span>Veille technologique</a>
+    <div class="nav-section" style="margin-top:0.5rem;">Épreuves</div>
+    <a onclick="toggleE5()" id="n-e5" style="justify-content:space-between;">
+      <span style="display:flex;align-items:center;gap:0.75rem;"><span class="nav-icon">📋</span>Épreuve E5</span>
+      <span id="e5-arrow" style="font-size:0.65rem;opacity:0.5;transition:transform 0.2s;">▶</span>
+    </a>
+    <div id="e5-submenu" style="display:none;background:rgba(0,0,0,0.2);">
+      <a href="tableau_synthese_e5.pdf" target="_blank" style="padding-left:2.5rem;font-size:0.76rem;display:flex;align-items:center;gap:0.75rem;padding-top:0.65rem;padding-bottom:0.65rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:all 0.18s;border-right:3px solid transparent;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'"><span style="font-size:0.8rem;">📄</span>Tableau officiel E5</a>
+      <a onclick="goE5('patrimoine')" id="n-e5-patrimoine" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">📦</span>Gérer le patrimoine</a>
+      <a onclick="goE5('incidents')" id="n-e5-incidents" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">🔧</span>Répondre aux incidents</a>
+      <a onclick="goE5('presence')" id="n-e5-presence" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">🌐</span>Présence en ligne</a>
+      <a onclick="goE5('projet')" id="n-e5-projet" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">📊</span>Travailler en mode projet</a>
+      <a onclick="goE5('service')" id="n-e5-service" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">🖥️</span>Mettre à disposition</a>
+      <a onclick="goE5('developpement')" id="n-e5-developpement" style="padding-left:2.5rem;font-size:0.76rem;"><span class="nav-icon" style="font-size:0.8rem;">📈</span>Développement pro</a>
+    </div>
+    <a onclick="toggleE6()" id="n-e6"><span class="nav-icon">🔒</span>Épreuve E6</a>
+  </nav>
+</div>
+
+<!-- MODAL MOT DE PASSE E6 -->
+<div id="e6-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;align-items:center;justify-content:center;">
+  <div style="background:white;border-radius:20px;padding:2.5rem;width:380px;max-width:90vw;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+    <div style="font-size:2rem;margin-bottom:1rem;">🔒</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:0.4rem;color:#1A1A18;">Épreuve E6</div>
+    <div style="font-size:0.82rem;color:#6B6860;margin-bottom:1.5rem;">Cette section est protégée.<br>Veuillez entrer le mot de passe.</div>
+    <input type="password" id="e6-pwd-input" placeholder="Mot de passe..."
+      style="width:100%;padding:0.75rem 1rem;border:1.5px solid #E0DDD6;border-radius:10px;font-size:0.9rem;font-family:'Inter',sans-serif;outline:none;margin-bottom:0.75rem;text-align:center;"
+      onkeydown="if(event.key==='Enter')checkE6Pwd()">
+    <div id="e6-pwd-error" style="display:none;color:#EF4444;font-size:0.78rem;margin-bottom:0.75rem;">Mot de passe incorrect.</div>
+    <div style="display:flex;gap:0.75rem;justify-content:center;">
+      <button onclick="closeE6Modal()" style="padding:0.65rem 1.2rem;border-radius:10px;border:1.5px solid #E0DDD6;background:transparent;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Annuler</button>
+      <button onclick="checkE6Pwd()" style="padding:0.65rem 1.4rem;border-radius:10px;border:none;background:#FF4D1C;color:white;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Accéder →</button>
+    </div>
+  </div>
+</div>
+<!-- E5 accessible sans mot de passe -->
+
+<script>
+const E6_PWD = 'SIOe62026!';
+let e6Unlocked = false;
+
+function toggleE6(){
+  if(!e6Unlocked){
+    document.getElementById('e6-modal').style.display='flex';
+    setTimeout(()=>document.getElementById('e6-pwd-input').focus(),100);
+    return;
+  }
+  go('e6');
+}
+
+function checkE6Pwd(){
+  const val=document.getElementById('e6-pwd-input').value;
+  const err=document.getElementById('e6-pwd-error');
+  if(val===E6_PWD){
+    e6Unlocked=true;
+    closeE6Modal();
+    go('e6');
+  } else {
+    err.style.display='block';
+    document.getElementById('e6-pwd-input').value='';
+    document.getElementById('e6-pwd-input').focus();
+  }
+}
+
+function closeE6Modal(){
+  document.getElementById('e6-modal').style.display='none';
+  document.getElementById('e6-pwd-input').value='';
+  document.getElementById('e6-pwd-error').style.display='none';
+}
+let e5Unlocked = true;
+let pendingE5Page = null;
+
+function toggleE5(){
+  openE5Submenu();
+}
+
+function goE5(page){
+  go('e5-'+page);
+}
+
+function openE5Submenu(){
+  const sub=document.getElementById('e5-submenu');
+  const arrow=document.getElementById('e5-arrow');
+  const isOpen=sub.style.display!=='none';
+  sub.style.display=isOpen?'none':'block';
+  arrow.style.transform=isOpen?'rotate(0deg)':'rotate(90deg)';
+}
+
+const allPages = ['accueil','bts','alt','parc','veille','e5-patrimoine','e5-incidents','e5-presence','e5-projet','e5-service','e5-developpement','e6','r01','r02','r03','r04','r05','r06','r07','r08','r09','r10','r11','r12','r13','r14','r15','r16','r17','r18','r19'];
+const allNavIds = ['accueil','bts','alt','parc','veille','e5','e5-patrimoine','e5-incidents','e5-presence','e5-projet','e5-service','e5-developpement','e6'];
+
+function go(name){
+  allPages.forEach(id=>{
+    const p=document.getElementById('p-'+id);
+    if(p) p.classList.remove('active');
+  });
+  allNavIds.forEach(id=>{
+    const n=document.getElementById('n-'+id);
+    if(n) n.classList.remove('active');
+  });
+  document.getElementById('p-'+name).classList.add('active');
+  const nav=document.getElementById('n-'+name);
+  if(nav) nav.classList.add('active');
+  document.getElementById('main').scrollTo(0,0);
+  setTimeout(anim,50);
+  if(window.innerWidth<=900) document.getElementById('sidebar').classList.remove('open');
+}
+
+function anim(){
+  document.querySelectorAll('.page.active .fi').forEach((el,i)=>{
+    el.classList.remove('show');
+    setTimeout(()=>el.classList.add('show'),i*70);
+  });
+}
+
+function toggleMenu(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+function sendContact(e){
+  e.preventDefault();
+  const name=e.target.querySelector('[placeholder="Votre nom"]')?.value||'';
+  const email=e.target.querySelector('[placeholder="Votre email"]')?.value||'';
+  const msg=e.target.querySelector('textarea')?.value||'';
+  const mailto=`mailto:bogaczcyprien@gmail.com?subject=Message de ${encodeURIComponent(name)} via portfolio&body=${encodeURIComponent(msg+'\n\nExpéditeur: '+name+' ('+email+')')}`;
+  window.location.href=mailto;
+  const success=e.target.querySelector('.form-success');
+  if(success){success.style.display='block';}
+}
+
+
+function goReal(name){
+  allPages.forEach(id=>{
+    const p=document.getElementById('p-'+id);
+    if(p) p.classList.remove('active');
+  });
+  allNavIds.forEach(id=>{
+    const n=document.getElementById('n-'+id);
+    if(n) n.classList.remove('active');
+  });
+  document.getElementById('p-'+name).classList.add('active');
+  document.getElementById('main').scrollTo(0,0);
+  setTimeout(anim,50);
+}
+window.addEventListener('load',()=>setTimeout(anim,100));
+</script>
+</body>
+</html>
